@@ -35,17 +35,39 @@ function coco_setup() {
 	 */
 	add_theme_support( 'title-tag' );
 
+
+	/*
+	 * Enable support for custom logo.
+	 *
+	 *  https://codex.wordpress.org/Theme_Logo
+	 */
+	add_theme_support( 'custom-logo', array(
+		'height'      => 100,
+		'width'       => 600,
+		'flex-height' => true,
+		'flex-width'  => true,
+		'header-text' => array( 'site-title', 'site-description' ),
+	) );
+
+
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 1280, 720, true ); //16:9 image
+	add_image_size( 'mobile-thumb', 320, 180, true );
+	add_image_size( 'tablet-thumb', 640, 360, true );
+	add_image_size( 'large-thumb', 1920, 1080, true ); //16:9
+
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'coco' ),
+		'primary' => esc_html__( 'Primary', 'coco' ),
+		'social' => esc_html__( 'Social', 'coco' ),
 	) );
+
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -107,6 +129,16 @@ add_action( 'widgets_init', 'coco_widgets_init' );
 function coco_scripts() {
 	wp_enqueue_style( 'coco-style', get_stylesheet_uri() );
 
+	/**
+	 * JQUERY LOAD AFTER CONTENT
+	 */
+	wp_deregister_script( 'jquery' );
+	wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
+	//wp_enqueue_script( 'jquery' );
+	wp_deregister_script( 'jquery-migrate.min' );
+	wp_register_script( 'jquery-migrate.min', includes_url( '/js/jquery/jquery-migrate.min.js' ), false, NULL, true );
+	//wp_enqueue_script( 'jquery-migrate.min' );
+
 	wp_enqueue_script( 'coco-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'coco-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -141,3 +173,31 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+
+
+/**
+ * Filter the excerpt "read more" string.
+ *
+ * @param string $more "Read more" excerpt string.
+ * @return string (Maybe) modified "read more" excerpt string.
+ * https://developer.wordpress.org/reference/functions/the_excerpt/
+ */
+function wpdocs_excerpt_more( $more ) {
+    return '...';
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+
+/**
+ * Filter the except length to 20 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ * https://developer.wordpress.org/reference/functions/the_excerpt/
+ */
+function wpdocs_custom_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
