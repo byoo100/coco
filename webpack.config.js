@@ -9,7 +9,7 @@ module.exports = {
   entry: "./src/main.js",
   output: {
     path: __dirname + "/dist/js",
-    filename: "bundle.js"
+    filename: "bundle.min.js"
   },
   module:{
     loaders:[
@@ -39,6 +39,10 @@ module.exports = {
         test: /\.(jpg|png|gif)$/,
         loader: 'url-loader'
       },
+      {
+          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          loader: 'url-loader'
+      }
     ]
   },
   plugins: debug ? [
