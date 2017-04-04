@@ -1,0 +1,70 @@
+#navbar-main{
+  #nav-menubar{
+    display:flex;
+
+    #site-branding{
+      flex:0 0 20%;
+
+      .site-title{
+        font-weight: 700;
+      }
+    }//#site-branding
+
+    #nav-list{
+      flex:0 0 80%;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: flex-end;
+
+      @include font-size(1.25);
+      list-style: none;
+      margin:0;
+      padding:0;
+
+        li{
+          position: relative;
+          padding: 1em 0.5em;
+
+          ul.sub-menu{
+            display: none;
+          }//sub-menu
+        }//li
+
+    }//#nav-container
+  }//#nav-menu
+}//#navbar-main
+
+
+.dropdown-toggle{
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 12px;
+  right: 6px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 0;
+  font-family: 'FontAwesome';
+  background-color: #000;
+  border: 1px solid #fff;
+  content: "";
+  color: #fff;
+  text-transform: lowercase; /* Stop screen readers from reading the text as capital letters */
+
+  &:after {
+    content: "\f078";
+    font-size: 16px;
+    position: relative;
+    top: 0;
+    width: 30px;
+  }
+
+  &:hover{
+    color: #000;
+    background-color: #fff;
+  }
+
+  &:focus{ outline: none; }
+}

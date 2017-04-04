@@ -131,6 +131,7 @@ function coco_scripts() {
 
 	wp_enqueue_style( 'coco-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,700' );
 
+	wp_enqueue_style( 'coco-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 
 	/**
 	 * JQUERY LOAD AFTER CONTENT
