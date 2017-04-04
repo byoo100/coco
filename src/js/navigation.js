@@ -5,102 +5,122 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, button, menu, links, i, len;
+	var container, menu, menubar, has_children, dropdownToggle = [];
 
-	container = document.getElementById( 'site-navigation' );
-	if ( ! container ) {
-		return;
-	}
+	//Cache DOM
+	container = document.getElementById( 'navbar-main' );
+	menubar = document.getElementById( 'nav-menubar' );
+	menu = document.getElementById( 'nav-list' );
+	has_children = menu.getElementsByClassName('menu-item-has-children');
 
-	button = container.getElementsByTagName( 'button' )[0];
-	if ( 'undefined' === typeof button ) {
-		return;
-	}
 
-	menu = container.getElementsByTagName( 'ul' )[0];
 
-	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
-		button.style.display = 'none';
-		return;
-	}
+	//Init
+	addSubMenu();
 
-	menu.setAttribute( 'aria-expanded', 'false' );
-	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-		menu.className += ' nav-menu';
-	}
 
-	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
-			menu.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			container.className += ' toggled';
-			button.setAttribute( 'aria-expanded', 'true' );
-			menu.setAttribute( 'aria-expanded', 'true' );
-		}
-	};
+
+	function addSubMenu(){
+		var dropdown = document.createElement('button');
+		dropdown.className = "dropdown-toggle";
+
+		for (var i = 0; i < has_children.length; i++){
+			insertAfter(has_children[i].firstChild, dropdown);
+
+			dropdown.onclick = function(){
+				if ( -1 == this.className.indexOf( 'toggled' ) ){
+					this.className += ' toggled';
+				} else {
+					this.className = this.className.replace( ' toggled', '' );
+				}
+			}//onclick
+		}//for
+	}//addSubMenu
+
+
+	function insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+	// button = container.getElementsByTagName( 'button' )[0];
+
+
+	// menu.setAttribute( 'aria-expanded', 'false' );
+	// if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
+	// 	menu.className += ' nav-menu';
+	// }
+	//
+	// button.onclick = function() {
+	// 	if ( -1 !== container.className.indexOf( 'toggled' ) ) {
+	// 		container.className = container.className.replace( ' toggled', '' );
+	// 		button.setAttribute( 'aria-expanded', 'false' );
+	// 		menu.setAttribute( 'aria-expanded', 'false' );
+	// 	} else {
+	// 		container.className += ' toggled';
+	// 		button.setAttribute( 'aria-expanded', 'true' );
+	// 		menu.setAttribute( 'aria-expanded', 'true' );
+	// 	}
+	// };
 
 	// Get all the link elements within the menu.
-	links    = menu.getElementsByTagName( 'a' );
+	// links    = menu.getElementsByTagName( 'a' );
 
 	// Each time a menu link is focused or blurred, toggle focus.
-	for ( i = 0, len = links.length; i < len; i++ ) {
-		links[i].addEventListener( 'focus', toggleFocus, true );
-		links[i].addEventListener( 'blur', toggleFocus, true );
-	}
+	// for ( i = 0, len = links.length; i < len; i++ ) {
+	// 	links[i].addEventListener( 'focus', toggleFocus, true );
+	// 	links[i].addEventListener( 'blur', toggleFocus, true );
+	// }
 
 	/**
 	 * Sets or removes .focus class on an element.
 	 */
-	function toggleFocus() {
-		var self = this;
-
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-
-			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
-			}
-
-			self = self.parentElement;
-		}
-	}
+	// function toggleFocus() {
+	// 	var self = this;
+	//
+	// 	// Move up through the ancestors of the current link until we hit .nav-menu.
+	// 	while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+	//
+	// 		// On li elements toggle the class .focus.
+	// 		if ( 'li' === self.tagName.toLowerCase() ) {
+	// 			if ( -1 !== self.className.indexOf( 'focus' ) ) {
+	// 				self.className = self.className.replace( ' focus', '' );
+	// 			} else {
+	// 				self.className += ' focus';
+	// 			}
+	// 		}
+	//
+	// 		self = self.parentElement;
+	// 	}
+	// }
 
 	/**
 	 * Toggles `focus` class to allow submenu access on tablets.
 	 */
-	( function( container ) {
-		var touchStartFn, i,
-			parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
-
-		if ( 'ontouchstart' in window ) {
-			touchStartFn = function( e ) {
-				var menuItem = this.parentNode, i;
-
-				if ( ! menuItem.classList.contains( 'focus' ) ) {
-					e.preventDefault();
-					for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
-						if ( menuItem === menuItem.parentNode.children[i] ) {
-							continue;
-						}
-						menuItem.parentNode.children[i].classList.remove( 'focus' );
-					}
-					menuItem.classList.add( 'focus' );
-				} else {
-					menuItem.classList.remove( 'focus' );
-				}
-			};
-
-			for ( i = 0; i < parentLink.length; ++i ) {
-				parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
-			}
-		}
-	}( container ) );
+	// ( function( container ) {
+	// 	var touchStartFn, i,
+	// 		parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+	//
+	// 	if ( 'ontouchstart' in window ) {
+	// 		touchStartFn = function( e ) {
+	// 			var menuItem = this.parentNode, i;
+	//
+	// 			if ( ! menuItem.classList.contains( 'focus' ) ) {
+	// 				e.preventDefault();
+	// 				for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
+	// 					if ( menuItem === menuItem.parentNode.children[i] ) {
+	// 						continue;
+	// 					}
+	// 					menuItem.parentNode.children[i].classList.remove( 'focus' );
+	// 				}
+	// 				menuItem.classList.add( 'focus' );
+	// 			} else {
+	// 				menuItem.classList.remove( 'focus' );
+	// 			}
+	// 		};
+	//
+	// 		for ( i = 0; i < parentLink.length; ++i ) {
+	// 			parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
+	// 		}
+	// 	}
+	// }( container ) );
 } )();

@@ -129,6 +129,9 @@ add_action( 'widgets_init', 'coco_widgets_init' );
 function coco_scripts() {
 	wp_enqueue_style( 'coco-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'coco-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,700' );
+
+
 	/**
 	 * JQUERY LOAD AFTER CONTENT
 	 */
