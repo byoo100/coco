@@ -26,7 +26,7 @@
 
           <?php wp_nav_menu( array(
               'theme_location' => 'primary',
-              'container' => 'none',
+              'container' => 'ul',
               'menu_id'  => 'nav-list'
           ) ); ?>
 
