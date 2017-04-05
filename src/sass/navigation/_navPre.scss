@@ -1,0 +1,79 @@
+#social-list li a[href*="facebook.com"]::before { content: '\f082' !important; }
+#social-list li a[href*="twitter.com"]::before { content: '\f099' !important; }
+#social-list li a[href*="dribbble.com"]::before { content: '\f17d' !important; }
+#social-list li a[href*="plus.google.com"]::before { content: '\f0d5' !important; }
+#social-list li a[href*="pinterest.com"]::before { content: '\f0d2' !important; }
+#social-list li a[href*="github.com"]::before { content: '\f09b' !important; }
+#social-list li a[href*="tumblr.com"]::before { content: '\f173' !important; }
+#social-list li a[href*="youtube.com"]::before { content: '\f167' !important; }
+#social-list li a[href*="flickr.com"]::before { content: '\f16e' !important; }
+#social-list li a[href*="vimeo.com"]::before { content: '\f194' !important; }
+#social-list li a[href*="instagram.com"]::before { content: '\f16d' !important; }
+#social-list li a[href*="linkedin.com"]::before { content: '\f0e1' !important; }
+
+#pre-menubar{
+  background-color: $color__navigation_pre;
+
+  .container-nav{
+    display: flex;
+    line-height: 3em;
+
+    ul{
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      list-style: none;
+
+      li a{ text-decoration: none; }
+    }//ul
+
+    #pre-grid{
+      flex: 0 0 50%;
+      ul{
+        float: left;
+        margin-right: 1em;
+        padding-right: 1em;
+        border-right: 1px solid #e0e0e0;
+        &:last-child{ margin-right: 0; padding-right: 0; border-right: none;}
+      }
+
+      #site-mail{
+        .email{ display: inline; }
+        .email.name:before{ display: inline; content:'\f0e0'; font-family: $font__awesome; margin-right: 1em; }
+        .email.name:after{ display: inline; content:'@'; margin-right: -0.25em; }
+        .email.mail:after{ display: inline; content:'.'; margin-right: -0.25em; }
+      }//#site-mail
+
+      #social-list{
+        li{
+          display:inline-block;
+
+          a {
+            @include font-size(1.5);
+            display: inline-block;
+            padding: 0 0.25em;
+
+            &:before{ font-family: $font__awesome; content:''; }
+          }
+        }
+      }
+    }//pre-grid
+
+    #lang-list{
+      flex: 0 0 50%;
+      text-transform: uppercase;
+
+      ul{
+        display: inline-block;
+        float: right;
+        li{
+          display:inline-block;
+          margin-right: 1em;
+          height: 100%;
+          &:last-child{ margin-right: 0; }
+          a{ display: inline-block; height: 100%; }
+        }
+      }//ul
+    }//#lang-list
+  }//container-nav
+}//#navbar-pre

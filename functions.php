@@ -66,6 +66,7 @@ function coco_setup() {
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'coco' ),
 		'social' => esc_html__( 'Social', 'coco' ),
+		'language' => esc_html__( 'Language', 'coco' ),
 	) );
 
 
@@ -129,7 +130,12 @@ add_action( 'widgets_init', 'coco_widgets_init' );
 function coco_scripts() {
 	wp_enqueue_style( 'coco-style', get_stylesheet_uri() );
 
-	wp_enqueue_style( 'coco-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,700' );
+		if( get_bloginfo('language') == 'en-US'){
+			wp_enqueue_style( 'coco-fonts-EN', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,700' );
+		} elseif ( get_bloginfo('language') == 'ko-KR' ){
+			wp_enqueue_style( 'coco-fonts-KR-nanum', 'https://fonts.googleapis.com/earlyaccess/nanumgothic.css' );
+			wp_enqueue_style( 'coco-fonts-KR-jeju', 'https://fonts.googleapis.com/earlyaccess/jejugothic.css' );
+		}
 
 	wp_enqueue_style( 'coco-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 
