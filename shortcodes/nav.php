@@ -3,7 +3,6 @@
 
   <div id="pre-menubar">
     <div class="container-nav">
-    <div id="pre-grid">
       <ul id="site-mail">
         <li>
             <span class="email name">contact</span>
@@ -18,13 +17,12 @@
           'link_before' => '<span class=screen-reader-text>',
           'link_after' => '</span>'
       ) ); ?>
-    </div><!-- #pre-grid -->
 
-    <?php wp_nav_menu( array(
-        'theme_location' => 'language',
-        'container' => 'div',
-        'container_id' => 'lang-list'
-    ) ); ?>
+      <?php wp_nav_menu( array(
+          'theme_location' => 'language',
+          'container' => 'ul',
+          'menu_id' => 'lang-list'
+      ) ); ?>
   </div><!--container-nav-->
   </div><!--pre-menubar-->
 
@@ -42,7 +40,7 @@
     <?php wp_nav_menu( array(
         'theme_location' => 'primary',
         'container' => 'ul',
-        'menu_id'  => 'nav-list'
+        'menu_id' => 'nav-list'
     ) ); ?>
 
     </div><!--container-nav-->

@@ -13,10 +13,16 @@
 
 // Clearfix
 @mixin clearfix() {
-	content: "";
-	display: table;
-	table-layout: fixed;
-}
+  &:before,
+  &:after {
+    content:'';
+    display: table;
+  } /*before, after*/
+
+  &:after {
+    clear: both;
+  } //after
+} //clearfix
 
 // Clear after (not all clearfix need this also)
 @mixin clearfix-after() {

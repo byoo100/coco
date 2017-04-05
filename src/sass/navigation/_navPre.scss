@@ -1,4 +1,4 @@
-#social-list li a[href*="facebook.com"]::before { content: '\f082' !important; }
+#social-list li a[href*="facebook.com"]::before { content: '\f09a' !important; }
 #social-list li a[href*="twitter.com"]::before { content: '\f099' !important; }
 #social-list li a[href*="dribbble.com"]::before { content: '\f17d' !important; }
 #social-list li a[href*="plus.google.com"]::before { content: '\f0d5' !important; }
@@ -15,65 +15,65 @@
   background-color: $color__navigation_pre;
 
   .container-nav{
-    display: flex;
-    line-height: 3em;
+    display: block;
+    @include clearfix();
 
     ul{
+      @include clearfix();
+      float: left;
       margin: 0;
-      padding: 0;
-      height: 100%;
+      padding: 0 1em;
+      height: 3.125rem;
+      line-height: 3.125rem;
       list-style: none;
 
-      li a{ text-decoration: none; }
-    }//ul
+      border-right: 1px solid #e0e0e0;
+      &:first-child{ padding-left: 0; }
+      &:last-child{ padding-right: 0; border-right: none;}
 
-    #pre-grid{
-      flex: 0 0 50%;
-      ul{
-        float: left;
-        margin-right: 1em;
-        padding-right: 1em;
-        border-right: 1px solid #e0e0e0;
-        &:last-child{ margin-right: 0; padding-right: 0; border-right: none;}
-      }
-
-      #site-mail{
-        .email{ display: inline; }
-        .email.name:before{ display: inline; content:'\f0e0'; font-family: $font__awesome; margin-right: 1em; }
-        .email.name:after{ display: inline; content:'@'; margin-right: -0.25em; }
-        .email.mail:after{ display: inline; content:'.'; margin-right: -0.25em; }
-      }//#site-mail
-
-      #social-list{
-        li{
-          display:inline-block;
-
-          a {
-            @include font-size(1.5);
-            display: inline-block;
-            padding: 0 0.25em;
-
-            &:before{ font-family: $font__awesome; content:''; }
-          }
+      li{
+        a{
+          text-decoration: none;
         }
       }
-    }//pre-grid
+    }
+
+    #site-mail{
+      .email{ display: inline-block; }
+      .email.name:before{ display: inline; content:'\f0e0'; font-family: $font__awesome; margin-right: 1em; }
+      .email.name:after{ display: inline; content:'@'; margin-right: -0.25em; }
+      .email.mail:after{ display: inline; content:'.'; margin-right: -0.25em; }
+    }//#site-mail
+
+    #social-list{
+      li{
+        display:inline-block;
+
+        a {
+          @include font-size(1.5);
+          display: inline-block;
+          padding: 0 0.25em;
+
+          &:before{ font-family: $font__awesome; content:''; }
+        }
+      }
+    }
 
     #lang-list{
-      flex: 0 0 50%;
+      @include clearfix();
+      float: right;
       text-transform: uppercase;
 
-      ul{
-        display: inline-block;
-        float: right;
-        li{
-          display:inline-block;
-          margin-right: 1em;
-          height: 100%;
-          &:last-child{ margin-right: 0; }
-          a{ display: inline-block; height: 100%; }
-        }
-      }//ul
+
+      li{
+        display:inline-block;
+        margin-right: 1em;
+        height: 100%;
+        &:last-child{ margin-right: 0; }
+        a{ display: inline-block; height: 100%; }
+      }
     }//#lang-list
+
+
   }//container-nav
 }//#navbar-pre
