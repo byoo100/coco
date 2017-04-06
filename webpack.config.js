@@ -36,12 +36,12 @@ module.exports = {
         })
       },
       {
-        test: /\.(jpg|png|gif)$/,
+        test: /\.(jpg|jpeg|png|gif)$/,
         loader: 'url-loader'
       },
       {
-          test: /\.(eot|svg|ttf|woff|woff2)$/,
-          loader: 'url-loader'
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'url-loader'
       }
     ]
   },

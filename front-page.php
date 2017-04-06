@@ -19,8 +19,8 @@ get_header(); ?>
     <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive,
     mobile-first projects on the web.</p>
   </div>
-  
-	<div id="primary" class="content-area container-fluid">
+
+	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php

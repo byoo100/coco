@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, menu, menubar, has_children, dropdownToggle = [];
+	var container, menu, menubar, has_children = [];
 
 	//Cache DOM
 	container = document.getElementById( 'navbar-main' );
@@ -21,10 +21,10 @@
 
 
 	function addSubMenu(){
-		var dropdown = document.createElement('button');
-		dropdown.className = "dropdown-toggle";
-
 		for (var i = 0; i < has_children.length; i++){
+			var dropdown = document.createElement('button');
+			dropdown.className = "dropdown-toggle";
+
 			insertAfter(has_children[i].firstChild, dropdown);
 
 			dropdown.onclick = function(){
