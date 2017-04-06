@@ -1,9 +1,43 @@
 $size__site-main: 100%;
 $size__site-sidebar: 25%;
 
+$mobile-width: 37.5rem; //600px
+$tablet-width: 62.5rem; //1000px
+$desktop-width: 87.5rem; //1400px
+
+$container-small: 400px;
+$container-medium: 630px;
+$container-large: 960px;
+$container-xlarge: 1290px;
+
+$size-sm: 400px;
+$size-md: 700px;
+$size-lg: 1000px;
+$size-xl: 1400px;
+
+$single-small: 400px;
+$single-medium: 630px;
+$single-lg: 830px;
+$single-xl: 1200px;
+
+
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+);
 
 .container-nav{
   max-width: 75em;
   margin: 0 auto;
   padding: 0 0.5em;
+}
+
+.single-container{
+  @include container($container-small);
+  @media screen and (min-width: $size-md) { @include container($container-medium); }
+  @media screen and (min-width: $size-lg) { @include container($single-lg); }
+  @media screen and (min-width: $size-xl) { @include container($single-xl); }
 }

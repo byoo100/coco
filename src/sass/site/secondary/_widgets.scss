@@ -1,8 +1,46 @@
-.widget {
-	margin: 0 0 1.5em;
+.widget-area{
+	@include span(3.2 of 12 no-gutters);
+	margin-left: span(0.8 of 12 no-gutters);
 
-	/* Make sure select elements fit in widgets. */
-	select {
-		max-width: 100%;
+
+	.widget {
+		margin: 0 0 1.5em;
+
+		/* Make sure select elements fit in widgets. */
+		select {
+			max-width: 100%;
+		}
+
+		.widget-title{
+			font-weight: 400;
+			margin: 0 0 0.25em;
+		}
+
+		//Recent Posts with Thumbnail
+		.rpwwt-widget{
+			ul{
+
+				li{
+					width: 100%;
+					margin: 0;
+					padding: 0.75em 0;
+					border-bottom: 1px solid #eee;
+
+					a{
+						display: flex;
+				    align-items: center;
+				    min-height: 65px;
+						text-decoration: none;
+
+						img{
+							display: block;
+							margin: 0 0.5em 0;
+						}
+					}
+				}
+			}
+		}
+
 	}
+
 }

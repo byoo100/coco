@@ -9,13 +9,24 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<div id="primary" class="content-area single-container">
+
+		<main id="main" class="site-main single-article" role="main">
+
+		<?php
+			if ( has_post_thumbnail() ) {
+				echo "<div class='featured-container'>";
+				echo "<div class='featured-image'>";
+					the_post_thumbnail('large-thumb');
+				echo "</div>";
+				echo "</div>";
+			}
+		?>
 
 		<?php
 		while ( have_posts() ) : the_post();
 
-			get_template_part( 'template-parts/content', get_post_format() );
+			get_template_part( 'template-parts/content', 'single' );
 
 			the_post_navigation();
 
@@ -28,8 +39,10 @@ get_header(); ?>
 		?>
 
 		</main><!-- #main -->
+
+		<?php get_sidebar(); ?>
+
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

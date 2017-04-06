@@ -25,16 +25,18 @@ function coco_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'coco' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
+		esc_html_x( '%s', 'post date', 'coco' ), $time_string );
 
 	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'coco' ),
+		esc_html_x( '%s', 'post author', 'coco' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+	$categories_list = get_the_category_list( esc_html__( ', ', 'coco' ) );
+
+	echo '<span class="meta byline">' . $byline . '</span>';
+	echo '<span class="meta posted-on">' . $posted_on . '</span>';
+	echo '<span class="meta cat-links">' . $categories_list . '</span>';
 
 }
 endif;
