@@ -12,20 +12,45 @@
 
       #site-branding{
         flex:0 0 30%;
+        position: relative;
 
-        .site-title{
-          margin:0;
-          @include font-size(3);
-          line-height: 1em;
-          font-weight: 700;
-          a{ text-decoration: none; }
+        a.logo{
+          display:inline-block;
+          position: relative;
+          margin-right: 1em;
+
+          &:after{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+          }
         }
 
-        .site-description{
-          @include font-size(0.8);
-          margin:0;
-          max-width: 200px;
+        .site-info{
+          display:inline-block;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+
+          .site-title{
+            margin:0;
+            @include font-size(3);
+            max-width: 200px;
+            line-height: 1em;
+            font-weight: 700;
+            a{ text-decoration: none; }
+          }
+
+          .site-description{
+            @include font-size(0.8);
+            margin:0;
+            max-width: 200px;
+          }
         }
+
       }//#site-branding
 
       #nav-list{

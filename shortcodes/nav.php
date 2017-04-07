@@ -33,8 +33,13 @@
     <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'coco' ); ?></button>
 
     <div id="site-branding">
-      <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-      <p class="site-description"><?php echo get_bloginfo( 'description', 'display' ); ?></p>
+      <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="logo">
+        <object type="image/svg+xml" data="<?php echo get_template_directory_uri(); ?>/src/img/COCO-logo.svg" style="display:inline-block; width:100px; height:100px;"></object>
+      </a>
+      <div class="site-info">
+        <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+        <p class="site-description"><?php echo get_bloginfo( 'description', 'display' ); ?></p>
+      </div>
     </div><!-- .site-branding -->
 
     <?php wp_nav_menu( array(
