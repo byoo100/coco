@@ -1,7 +1,9 @@
 .single-container{
 
   .single-article{
-    @include span(8 no-gutters);
+    @include span(12 split);
+
+    @media screen and (min-width: $size-lg) { @include span(8 no-gutters); }
 
     .featured-container{
       .featured-image{
