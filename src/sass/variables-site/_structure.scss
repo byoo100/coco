@@ -10,15 +10,17 @@ $container-medium: 630px;
 $container-large: 960px;
 $container-xlarge: 1290px;
 
-$size-sm: 400px;
-$size-md: 768px;
-$size-lg: 1000px;
+$size-sm: 600px;
+$size-md: 900px;
+$size-lg: 1200px;
 $size-xl: 1400px;
+$size-xxl: 1600px;
 
-$single-small: 400px;
-$single-md: 700px;
-$single-lg: 900px;
+$single-sm: 700px;
+$single-md: 800px;
+$single-lg: 1000px;
 $single-xl: 1200px;
+$single-xxl: 1400px;
 
 
 $susy: (
@@ -36,8 +38,9 @@ $susy: (
 }
 
 .single-container{
-  @include container($container-small);
+  @include container($single-sm);
   @media screen and (min-width: $size-md) { @include container($single-md); }
   @media screen and (min-width: $size-lg) { @include container($single-lg); }
   @media screen and (min-width: $size-xl) { @include container($single-xl); }
+  @media screen and (min-width: $size-xxl) { @include container($single-xxl); }
 }

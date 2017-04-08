@@ -1,3 +1,13 @@
-.jumbotron{
-  background: url('../img/plant-bg.jpg');
+.jumbo{
+  background: url('../img/plant-bg.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 700px;
+  position: relative;
+
+  .text{
+    position:absolute;
+    bottom:0;
+    left:0;
+
+  }
 }

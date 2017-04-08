@@ -1,39 +1,35 @@
 #navbar-main{
+  position: relative;
   font-family: $font__navigation;
+  box-shadow: 0 4px 10px #333333;
+  z-index:999;
 
   #nav-menubar{
+    background-color:#ffffff;
 
     .container-nav{
       display:flex;
+      height: 6.25em;
 
       .menu-toggle{
         display: none;
       }//menu-toggle
 
       #site-branding{
-        flex:0 0 30%;
+        flex:0 0 35%;
         position: relative;
+        display:flex;
+        align-items: center;
 
-        a.logo{
+        .logo{
           display:inline-block;
           position: relative;
           margin-right: 1em;
-
-          &:after{
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-          }
         }
 
         .site-info{
           display:inline-block;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
+          position: relative;
 
           .site-title{
             margin:0;
@@ -54,7 +50,7 @@
       }//#site-branding
 
       #nav-list{
-        flex:0 0 70%;
+        flex:0 0 65%;
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
