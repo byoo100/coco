@@ -35,6 +35,8 @@
             font-family: $font__awesome;
             padding-right: 0.5em;
           }
+
+          a{ text-decoration: none; }
         }
 
         .byline:before{ content:'\f007'; }
