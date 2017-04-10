@@ -65,7 +65,9 @@
         text-transform: uppercase;
 
           li{
+            @include clearfix();
             position: relative;
+            padding:2em 0;
 
             a{
               padding: 0.25em 0.5em;
@@ -74,6 +76,21 @@
 
             ul.sub-menu{
               display: none;
+              position:absolute;
+              width:8em;
+              top: 100%;
+              right: 0;
+              margin:0;
+              padding:0;
+              background-color: #fafafa;
+              box-shadow: 5px 5px 5px #0f0f0f;
+              list-style:none;
+
+              li{
+                padding: 0.25em;
+
+                a{ border: none; }
+              }
             }//sub-menu
 
             &.menu-item-has-children{

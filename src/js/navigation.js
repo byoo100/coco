@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, menu, menubar, has_children = [];
+	var container, menu, menubar, has_children = [], submenu = [];
 
 	//Cache DOM
 	container = document.getElementById( 'navbar-main' );
@@ -13,12 +13,9 @@
 	menu = document.getElementById( 'nav-list' );
 	has_children = menu.getElementsByClassName('menu-item-has-children');
 
-
-
 	//Init
 	addSubMenu();
-
-
+	submenuToggle();
 
 	function addSubMenu(){
 		for (var i = 0; i < has_children.length; i++){
@@ -27,15 +24,27 @@
 
 			insertAfter(has_children[i].firstChild, dropdown);
 
-			dropdown.onclick = function(){
-				if ( -1 == this.className.indexOf( 'toggled' ) ){
-					this.className += ' toggled';
-				} else {
-					this.className = this.className.replace( ' toggled', '' );
-				}
-			}//onclick
+			submenu[i] = dropdown;
+
+			console.log(submenu[0]);
 		}//for
 	}//addSubMenu
+
+
+	function submenuToggle(){
+
+		for(var i = 0; i < submenu.length; i++){
+			submenu[i].onclick = function(){
+				if ( -1 == this.className.indexOf( 'toggled' ) ){
+					this.className += ' toggled';
+					this.nextSibling.nextElementSibling.style.display = 'block';
+				} else {
+					this.className = this.className.replace( ' toggled', '' );
+					console.log(this.nextSibling);
+				}
+			}//onclick
+		}
+	}
 
 
 	function insertAfter(referenceNode, newNode) {
