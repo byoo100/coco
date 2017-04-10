@@ -2,7 +2,7 @@
 <nav id="navbar-main" class="main-navigation" role="navigation">
 
   <div id="pre-menubar">
-    <div class="container-nav">
+    <div class="nav-container">
       <ul id="site-mail">
         <li>
             <span class="email name">contact</span>
@@ -28,7 +28,7 @@
 
 
   <div id="nav-menubar">
-    <div class="container-nav">
+    <div class="nav-container">
 
     <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'coco' ); ?></button>
 

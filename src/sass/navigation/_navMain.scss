@@ -7,9 +7,10 @@
   #nav-menubar{
     background-color:#ffffff;
 
-    .container-nav{
+    .nav-container{
       display:flex;
       height: 6.25em;
+      padding: 0 1em;
 
       .menu-toggle{
         display: none;
@@ -33,15 +34,15 @@
 
           .site-title{
             margin:0;
-            @include font-size(3);
+            font-size: 3em;
             max-width: 200px;
             line-height: 1em;
             font-weight: 700;
-            a{ text-decoration: none; }
+            a{ text-decoration: none; &:hover{ color: #1a8fb1; }}
           }
 
           .site-description{
-            @include font-size(0.8);
+            font-size: 0.8em;
             margin:0;
             max-width: 200px;
           }
@@ -56,7 +57,7 @@
         align-items: center;
         justify-content: flex-end;
 
-        @include font-size(1.125);
+        font-size: 1.125em;
         font-weight: 700;
         list-style: none;
         margin:0;
@@ -77,7 +78,7 @@
 
             &.menu-item-has-children{
               a{
-                padding-right: calc(30px + 0.5em);
+                padding-right: 2.175em;
               }
             }//menu-item-has-children
 
@@ -91,9 +92,9 @@
             .dropdown-toggle{
               position: absolute;
               content: "";
-              height: 2em;
-              width: 2em;
-              right: 10px;
+              height: 1.75em;
+              width: 1.75em;
+              right: 0.625em;
               padding: 0;
               box-sizing: content-box;
               font-family: 'FontAwesome';
@@ -103,7 +104,7 @@
               color: #fff;
 
               &:after {
-                @include font-size(0.9);
+                font-size: 0.9em;
                 content: "\f078";
                 position: relative;
               }//after

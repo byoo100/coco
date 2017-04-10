@@ -57,9 +57,11 @@ function coco_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 1280, 720, true ); //16:9 image
-	add_image_size( 'mobile-thumb', 320, 180, true );
-	add_image_size( 'tablet-thumb', 640, 360, true );
-	add_image_size( 'large-thumb', 1920, 1080, true ); //16:9
+	add_image_size( 'square-sm', 300, 300, true );
+	add_image_size( 'square-md', 500, 500, true );
+	add_image_size( 'featured-xs', 320, 180, true );
+	add_image_size( 'featured-sm', 640, 360, true );
+	add_image_size( 'featured-lg', 1920, 1080, true ); //16:9
 
 
 	// This theme uses wp_nav_menu() in one location.
@@ -149,7 +151,13 @@ function coco_scripts() {
 	//wp_register_script( 'jquery-migrate.min', includes_url( '/js/jquery/jquery-migrate.min.js' ), false, NULL, true );
 	//wp_enqueue_script( 'jquery-migrate.min' );
 
-	wp_enqueue_script( 'coco-navigation', get_template_directory_uri() . '/dist/js/bundle.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'coco-bundle', get_template_directory_uri() . '/dist/js/bundle.min.js', array(), '20151215', true );
+
+	// GOOGLE MAP
+	wp_enqueue_script( 'coco-google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAFEVbGugLqPUEPC3Y9pr2uHOe5YXVud3w', array( ), false, true );
+	wp_enqueue_script( 'promise-google-map-js', get_template_directory_uri() . '/src/js/google-map.js', array( 'jquery' ), false, true );
+
+
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -182,6 +190,33 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+
+
+/**
+ * Removes default thumbnails
+ * https://paulund.co.uk/remove-default-wordpress-image-sizes
+ */
+function remove_default_image_sizes( $sizes) {
+    unset( $sizes['thumbnail']);
+    unset( $sizes['medium']);
+    unset( $sizes['medium_large']);
+    unset( $sizes['large']);
+
+    return $sizes;
+}
+add_filter('intermediate_image_sizes_advanced', 'remove_default_image_sizes');
+
+
+
+/**
+ * Google Map api key registry
+ *
+ * https://www.advancedcustomfields.com/resources/google-map/
+ */
+function my_acf_init() {
+	acf_update_setting('google_api_key', 'AIzaSyAFEVbGugLqPUEPC3Y9pr2uHOe5YXVud3w');
+}
+add_action('acf/init', 'my_acf_init');
 
 
 

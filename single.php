@@ -9,12 +9,55 @@
 
 get_header(); ?>
 
+
+<?php
+
+if(get_field('featured_video')){
+
+	$feat_vid = true;
+	// get iframe HTML
+	$video = get_field('featured_video');
+
+	// use preg_match to find iframe src
+	preg_match('/src="(.+?)"/', $video, $matches);
+	$src = $matches[1];
+
+
+	// add extra params to iframe src
+	$params = array(
+	    'controls'    => 2,
+	    'hd'        => 1,
+			'modestbranding' => 1
+	);
+
+	$new_src = add_query_arg($params, $src);
+
+	$video = str_replace($src, $new_src, $video);
+
+
+	// add extra attributes to iframe html
+	$attributes = 'frameborder="0"';
+
+	$video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
+
+}
+?>
+
+
+
+
 	<div id="primary" class="content-area single-container">
 
 		<main id="main" class="site-main single-article" role="main">
 
 		<?php
-			if ( has_post_thumbnail() ) {
+			if($feat_vid){
+				echo "<div class='featured-container'>";
+				echo "<div class='featured-video'>";
+				echo $video;
+				echo "</div>";
+				echo "</div>";
+			}elseif ( has_post_thumbnail() ) {
 				echo "<div class='featured-container'>";
 				echo "<div class='featured-image'>";
 					the_post_thumbnail('large-thumb');
