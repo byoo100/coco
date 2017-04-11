@@ -40,12 +40,25 @@
       }
     }
 
-    #site-mail{
-      .email{ display: inline-block; }
-      .email.name:before{ display: inline; content:'\f0e0'; font-family: $font__awesome; margin-right: 1em; }
-      .email.name:after{ display: inline; content:'@'; margin-right: -0.25em; }
-      .email.mail:after{ display: inline; content:'.'; margin-right: -0.25em; }
-    }//#site-mail
+    #site-contact{
+      #site-mail{
+        display: inline-block;
+        .email{ display: inline-block; }
+        .email.name:before{ display: inline; content:'\f0e0'; font-family: $font__awesome; margin-right: 0.5em; }
+        .email.name:after{ display: inline; content:'@'; margin-right: -0.25em; }
+        .email.mail:after{ display: inline; content:'.'; margin-right: -0.25em; }
+
+
+      }//#site-mail
+
+      #site-phone{
+        display: inline-block;
+        .phone{ display: inline-block; }
+        &:before{ display: inline; content:'\f095'; font-family: $font__awesome; margin: 0 0.5em 0 1em; }
+      }
+
+    }
+
 
     #social-list{
       li{

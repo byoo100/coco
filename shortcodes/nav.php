@@ -3,11 +3,15 @@
 
   <div id="pre-menubar">
     <div class="nav-container">
-      <ul id="site-mail">
-        <li>
+      <ul id="site-contact">
+        <li id="site-mail">
             <span class="email name">contact</span>
             <span class="email mail">mail</span>
             <span class="email com">com</span>
+        </li>
+        <li id="site-phone">
+            <span class="phone areacode">(917)</span>
+            <span class="phone number">575.9855</span>
         </li>
       </ul>
       <?php wp_nav_menu( array(

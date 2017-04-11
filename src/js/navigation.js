@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, menu, menubar, has_children = [], submenu = [];
+	var container, menu, menubar, has_children = [], dropdown = [], submenu;
 
 	//Cache DOM
 	container = document.getElementById( 'navbar-main' );
@@ -15,32 +15,50 @@
 
 	//Init
 	addSubMenu();
-	submenuToggle();
 
 	function addSubMenu(){
 		for (var i = 0; i < has_children.length; i++){
-			var dropdown = document.createElement('button');
-			dropdown.className = "dropdown-toggle";
+			var button = document.createElement('button');
+			button.className = "dropdown-toggle";
 
-			insertAfter(has_children[i].firstChild, dropdown);
+			insertAfter(has_children[i].firstChild, button);
 
-			submenu[i] = dropdown;
+			button.onclick = function(){
+				submenu = this.nextElementSibling
 
-			console.log(submenu[0]);
+				if ( -1 == this.className.indexOf( 'toggled' ) ){
+					this.className += ' toggled';
+					submenu.style.display = 'block';
+				} else {
+					this.className = this.className.replace( ' toggled', '' );
+					submenu.style.display = 'none';
+				}
+			}//onclick
+
+
+
+
 		}//for
 	}//addSubMenu
 
 
-	function submenuToggle(){
+	function dropdownToggle(){
 
-		for(var i = 0; i < submenu.length; i++){
-			submenu[i].onclick = function(){
+		for(var i = 0; i < dropdown.length; i++){
+
+			var sub = dropdown[i].nextElementSibling;
+
+			dropdown[i].onclick = function(){
 				if ( -1 == this.className.indexOf( 'toggled' ) ){
 					this.className += ' toggled';
-					this.nextSibling.nextElementSibling.style.display = 'block';
+					sub.className += ' up';
+					console.log(i);
+					console.log(sub);
 				} else {
 					this.className = this.className.replace( ' toggled', '' );
-					console.log(this.nextSibling);
+					sub = sub.className.replace( ' up', '' );
+					console.log(i);
+					console.log(sub);
 				}
 			}//onclick
 		}

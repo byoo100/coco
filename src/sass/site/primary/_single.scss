@@ -18,8 +18,10 @@
 
     .entry-header{
       .entry-title{
-        font-size: 2.2em;
+        font-size: 2.4em;
         margin: 0.5em 0 0.25em;
+        color:#19816e;
+        text-shadow: 2px 2px 4px #dddddd;
       }
       .entry-meta{
         display: block;
@@ -30,13 +32,18 @@
 
         .meta{
           margin-right: 1em;
+          color: #121212;
 
           &:before{
             font-family: $font__awesome;
             padding-right: 0.5em;
+            color: #25ab92;
           }
 
-          a{ text-decoration: none; }
+          a{
+            color: #121212; text-decoration: none;
+            &:hover{ color: #25ab92; }
+          }
         }
 
         .byline:before{ content:'\f007'; }
