@@ -50,21 +50,22 @@ if(get_field('featured_video')){
 
 		<main id="main" class="site-main single-article" role="main">
 
-		<?php
-			if($feat_vid){
-				echo "<div class='featured-container'>";
-				echo "<div class='featured-video'>";
-				echo $video;
-				echo "</div>";
-				echo "</div>";
-			}elseif ( has_post_thumbnail() ) {
-				echo "<div class='featured-container'>";
-				echo "<div class='featured-image'>";
-					the_post_thumbnail('large-thumb');
-				echo "</div>";
-				echo "</div>";
-			}
-		?>
+			<?php
+				if($feat_vid){
+					echo "<div class='featured-container'>";
+					echo "<div class='featured-video'>";
+					echo $video;
+					echo "</div>";
+					echo "</div>";
+				}elseif ( has_post_thumbnail() ) {
+					echo "<div class='featured-container'>";
+					echo "<div class='featured-image'>";
+						the_post_thumbnail('featured-lg');
+					echo "</div>";
+					echo "</div>";
+				}
+			?>
+
 
 		<?php
 		while ( have_posts() ) : the_post();
@@ -82,8 +83,6 @@ if(get_field('featured_video')){
 		?>
 
 		</main><!-- #main -->
-
-		<?php get_sidebar(); ?>
 
 	</div><!-- #primary -->
 

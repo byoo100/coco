@@ -3,5 +3,5 @@ node_modules
 .tmp
 .sass-cache
 images/*
-dist/*
+dist/js/bundle.min.js
 style.css

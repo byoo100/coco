@@ -1,14 +1,14 @@
 $size__site-main: 100%;
 $size__site-sidebar: 25%;
 
-$mobile-width: 37.5rem; //600px
-$tablet-width: 62.5rem; //1000px
-$desktop-width: 87.5rem; //1400px
 
-$container-small: 400px;
-$container-medium: 630px;
-$container-large: 960px;
-$container-xlarge: 1290px;
+$susy: (
+  columns: 12,
+  gutters: 1/3,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+);
 
 $size-sm: 600px;
 $size-md: 900px;
@@ -20,20 +20,12 @@ $nav-lg: 1200px;
 $nav-xl: 1400px;
 $nav-xxl: 1800px;
 
-$single-sm: 700px;
-$single-md: 800px;
-$single-lg: 1000px;
-$single-xl: 1200px;
-$single-xxl: 1400px;
+$single-sm: 100%;
+$single-md: 600px;
+$single-lg: 800px;
+$single-xl: 1000px;
+$single-xxl: 1200px;
 
-
-$susy: (
-  columns: 12,
-  gutters: 1/4,
-  math: fluid,
-  output: float,
-  gutter-position: after,
-);
 
 .nav-container{
   @include container($nav-lg);

@@ -148,10 +148,14 @@ function coco_scripts() {
 	wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
 	wp_enqueue_script( 'jquery' );
 	wp_deregister_script( 'jquery-migrate.min' );
-	//wp_register_script( 'jquery-migrate.min', includes_url( '/js/jquery/jquery-migrate.min.js' ), false, NULL, true );
-	//wp_enqueue_script( 'jquery-migrate.min' );
+	wp_register_script( 'jquery-migrate.min', includes_url( '/js/jquery/jquery-migrate.min.js' ), false, NULL, true );
+	wp_enqueue_script( 'jquery-migrate.min' );
 
-	wp_enqueue_script( 'coco-bundle', get_template_directory_uri() . '/dist/js/bundle.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'coco-bundle', get_template_directory_uri() . '/dist/js/bundle.min.js', array('jquery'), '20151215', true );
+
+	wp_enqueue_script( 'coco-matchHeight-jquery', get_template_directory_uri() . '/dist/js/jquery.matchHeight.js', array('jquery'), '20151215', true );
+	wp_enqueue_script( 'coco-matchHeight', get_template_directory_uri() . '/dist/js/matchHeight.js', array('jquery'), '20151215', true );
+
 
 	// GOOGLE MAP
 	wp_enqueue_script( 'coco-google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAFEVbGugLqPUEPC3Y9pr2uHOe5YXVud3w', array( ), false, true );

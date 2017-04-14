@@ -14,7 +14,7 @@
 
 get_header(); ?>
 
-  <section class="jumbo">
+  <section class="featured-home">
     <div class="text">
       <h1>Bootstrap Tutorial</h1>
       <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive,

@@ -6,10 +6,9 @@
     background-color:#ffffff;
     padding:0 1em;
 
-    @media screen and (min-width: $size-lg) { @include span(8 no-gutters); }
-
     .featured-container{
       margin:0 -1em;
+
       .featured-image{
         margin: 0 auto;
         img{ display: block; margin: 0 auto; }
@@ -18,16 +17,19 @@
 
     .entry-header{
       .entry-title{
-        font-size: 2.4em;
+        font-size: 2.6em;
         margin: 0.5em 0 0.25em;
+        text-align: center;
+        text-transform: uppercase;
         color:#19816e;
-        text-shadow: 2px 2px 4px #dddddd;
+        text-shadow: 3px 3px 4px #dddddd;
       }
       .entry-meta{
         display: block;
         font-family: $font__header;
         padding: 1em;
         margin:0 -1em;
+        text-align: center;
         border-bottom: 1px solid #eeeeee;
 
         .meta{
@@ -37,7 +39,7 @@
           &:before{
             font-family: $font__awesome;
             padding-right: 0.5em;
-            color: #25ab92;
+            color: #19816e;
           }
 
           a{
@@ -49,6 +51,30 @@
         .byline:before{ content:'\f007'; }
         .posted-on:before{ content:'\f272'; }
         .cat-links:before{ content:'\f02c'; }
+      }//entry-meta
+    }//entry-header
+
+    .entry-footer{
+      .tags-links{
+        display: block;
+        a{
+          display: inline-block;
+          margin-right: 0.75em;
+          text-transform: uppercase;
+          text-decoration: none;
+
+          &:before{
+            font-family: $font__awesome;
+            content: '\f02b';
+            margin-right: 0.33em;
+            color: #19816e;
+          }
+        }
+
+      }
+      .edit-link{
+        display: block;
+        padding: 0.25em;
       }
     }
   }//single-article
