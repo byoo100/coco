@@ -14,50 +14,84 @@
 
 get_header(); ?>
 
-  <section class="featured-home">
-    <div class="text">
-      <h1>Bootstrap Tutorial</h1>
-      <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive,
-      mobile-first projects on the web.</p>
-    </div>
-  </section>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+  <?php
 
-		<?php
-		if ( have_posts() ) :
+  // check if the flexible content field has rows of data
+  if( have_rows('home_welcome') ): the_row();
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+        if( get_row_layout() == 'welcome_section' ):
 
-			<?php
-			endif;
+        	$image_id = get_sub_field('welcome_image');
+          $text_content = get_sub_field('welcome_text');
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+          get_sub_field(welcome_x) ? $pos_x = get_sub_field(welcome_x) : $pos_x = '50%';
+          get_sub_field(welcome_y) ? $pos_x = get_sub_field(welcome_y) : $pos_y = '50%';
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+          $image_set = '<img src="%1$s" srcset="%2$s"  sizes="%3$s" class="featured-home" style="object-position:%4$s %5$s"></img>';
 
-			endwhile;
+          $image_set = sprintf( $image_set,
+        		wp_get_attachment_image_url( $image_id, 'featured-lg' ),
+        		wp_get_attachment_image_srcset( $image_id, 'featured-lg' ),
+        		wp_get_attachment_image_sizes( $image_id, 'featured-lg' ),
+            $pos_x,
+            $pos_y
+        	);
 
-			the_posts_navigation();
+          echo '<section class=featured-home>';
+          echo $image_set;
+          echo '<div class="text-area">';
+          echo $text_content;
+          echo '</div>';
+          echo '</section>';
 
-		else :
+        elseif( get_row_layout() == 'download' ):
 
-			get_template_part( 'template-parts/content', 'none' );
+        	$file = get_sub_field('file');
 
-		endif; ?>
+        endif;
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+  else :
+
+      // no layouts found
+
+  endif;
+
+  ?>
+
+
+      <section id="home-events">
+        <div class="page-container">
+          <h1>UPCOMING EVENTS</h1>
+        </div>
+      </section>
+
+      <?php
+        if( get_field("home_about")){
+          echo '<section id=home-about>';
+          echo '<div class=wrap-about>';
+          echo get_field("home_about");
+          echo '</div>';
+          echo '</section>';
+        }
+
+      ?>
+
+
+
+      <?php
+        if( get_field("home_info")){
+          echo '<section id=home-info>';
+          echo get_field("home_info");
+          echo '</section>';
+        }
+
+      ?>
+
+
+
+
+
 
 <?php
 get_footer();

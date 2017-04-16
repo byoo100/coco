@@ -26,11 +26,25 @@ $single-lg: 800px;
 $single-xl: 1000px;
 $single-xxl: 1200px;
 
+$page-sm: 100%;
+$page-md: 600px;
+$page-lg: 800px;
+$page-xl: 1000px;
+$page-xxl: 1200px;
+
 
 .nav-container{
   @include container($nav-lg);
   @media screen and (min-width: $size-xl) { @include container($nav-xl); }
   @media screen and (min-width: $size-xxl) { @include container($nav-xxl); }
+}
+
+.page-container{
+  @include container($page-sm);
+  @media screen and (min-width: $size-md) { @include container($page-md); }
+  @media screen and (min-width: $size-lg) { @include container($page-lg); }
+  @media screen and (min-width: $size-xl) { @include container($page-xl); }
+  @media screen and (min-width: $size-xxl) { @include container($page-xxl); }
 }
 
 .single-container{

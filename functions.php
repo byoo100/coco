@@ -61,6 +61,7 @@ function coco_setup() {
 	add_image_size( 'square-md', 500, 500, true );
 	add_image_size( 'featured-xs', 320, 180, true );
 	add_image_size( 'featured-sm', 640, 360, true );
+	add_image_size( 'featured-md', 1280, 720, true );
 	add_image_size( 'featured-lg', 1920, 1080, true ); //16:9
 
 
