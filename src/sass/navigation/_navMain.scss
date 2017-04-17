@@ -9,7 +9,7 @@
 
     .nav-container{
       display:flex;
-      height: 6.25em;
+      height: $nav-mainSize;
       padding: 0 1em;
 
       .menu-toggle{

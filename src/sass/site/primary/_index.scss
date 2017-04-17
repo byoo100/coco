@@ -10,60 +10,60 @@
     height: auto;
 }
 
-.blog-index{
+.index-blog{
   background-color:#efefef;
   padding-top: 2em;
-
-  .container-index{
-    @include container(1000px);
-    display: block;
-
-    article{
-      @include span(4 of 12);
-      margin-bottom: 1.25em;
-      background-color: #ffffff;
-      box-shadow: 3px 3px 6px #333333;
-      border-radius: 5px;
-      overflow: hidden;
-      &:nth-child(3n+0){ margin-right: 0; }
-
-      .index-image{
-        img{
-          display:block;
-          width:100%;
-          max-height: 180px;
-          object-fit: cover;
-          object-position: 50% 50%;
-        }
-      } //index-image
-
-      .entry-header{
-        .entry-title{
-          margin: 0.5em 0;
-          padding: 0 1em;
-          line-height: 1.33;
-          font-weight: 400;
-          text-align: center;
-          text-transform: uppercase;
-          a{ text-decoration: none; }
-        }
-
-        .entry-meta{
-          display: block;
-          font-size: 0.9em;
-          margin: 0 0 1em;
-          padding: 0 0.75em;
-          color: #808080;
-          text-align: center;
-        }
-      }
-
-      .entry-content{
-        font-size: 0.9em;
-        margin: 0 0 1.25em;
-        padding: 0 1em;
-        a{ text-decoration: none; p{ margin: 0; }}
-      }
-    } //article
-  } //container-index
 } //blog-index
+
+.index-container{
+  @include container(1000px);
+  display: block;
+
+  article{
+    @include span(4 of 12);
+    margin-bottom: 1.25em;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 6px #333333;
+    border-radius: 5px;
+    overflow: hidden;
+    &:nth-child(3n+0){ margin-right: 0; }
+
+    .index-image{
+      img{
+        display:block;
+        width:100%;
+        max-height: 180px;
+        object-fit: cover;
+        object-position: 50% 50%;
+      }
+    } //index-image
+
+    .entry-header{
+      .entry-title{
+        margin: 0.5em 0;
+        padding: 0 1em;
+        line-height: 1.33;
+        font-weight: 400;
+        text-align: center;
+        text-transform: uppercase;
+        a{ text-decoration: none; }
+      }
+
+      .entry-meta{
+        display: block;
+        font-size: 0.9em;
+        margin: 0 0 1em;
+        padding: 0 0.75em;
+        color: #808080;
+        text-align: center;
+      }
+    }
+
+    .entry-content{
+      font-size: 0.9em;
+      margin: 0 0 1.25em;
+      padding: 0 1em;
+      a{ text-decoration: none; p{ margin: 0; }}
+    }
+  } //article
+} //container-index

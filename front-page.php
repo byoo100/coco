@@ -20,36 +20,36 @@ get_header(); ?>
   // check if the flexible content field has rows of data
   if( have_rows('home_welcome') ): the_row();
 
-        if( get_row_layout() == 'welcome_section' ):
+    if( get_row_layout() == 'welcome_section' ):
 
-        	$image_id = get_sub_field('welcome_image');
-          $text_content = get_sub_field('welcome_text');
+    	$image_id = get_sub_field('welcome_image');
+      $text_content = get_sub_field('welcome_text');
 
-          get_sub_field(welcome_x) ? $pos_x = get_sub_field(welcome_x) : $pos_x = '50%';
-          get_sub_field(welcome_y) ? $pos_x = get_sub_field(welcome_y) : $pos_y = '50%';
+      get_sub_field(welcome_x) ? $pos_x = get_sub_field(welcome_x) : $pos_x = '50%';
+      get_sub_field(welcome_y) ? $pos_x = get_sub_field(welcome_y) : $pos_y = '50%';
 
-          $image_set = '<img src="%1$s" srcset="%2$s"  sizes="%3$s" class="featured-home" style="object-position:%4$s %5$s"></img>';
+      $image_set = '<img src="%1$s" srcset="%2$s"  sizes="%3$s" class="featured-home" style="object-position:%4$s %5$s"></img>';
 
-          $image_set = sprintf( $image_set,
-        		wp_get_attachment_image_url( $image_id, 'featured-lg' ),
-        		wp_get_attachment_image_srcset( $image_id, 'featured-lg' ),
-        		wp_get_attachment_image_sizes( $image_id, 'featured-lg' ),
-            $pos_x,
-            $pos_y
-        	);
+      $image_set = sprintf( $image_set,
+    		wp_get_attachment_image_url( $image_id, 'featured-lg' ),
+    		wp_get_attachment_image_srcset( $image_id, 'featured-lg' ),
+    		wp_get_attachment_image_sizes( $image_id, 'featured-lg' ),
+        $pos_x,
+        $pos_y
+    	);
 
-          echo '<section class=featured-home>';
-          echo $image_set;
-          echo '<div class="text-area">';
-          echo $text_content;
-          echo '</div>';
-          echo '</section>';
+      echo '<section class=featured-home>';
+      echo $image_set;
+      echo '<div class="text-area text-stroke">';
+      echo $text_content;
+      echo '</div>';
+      echo '</section>';
 
-        elseif( get_row_layout() == 'download' ):
+    elseif( get_row_layout() == 'download' ):
 
-        	$file = get_sub_field('file');
+    	$file = get_sub_field('file');
 
-        endif;
+    endif;
 
   else :
 
@@ -66,14 +66,14 @@ get_header(); ?>
 
       <section id="home-events">
         <div class="page-container">
-          <h1>UPCOMING EVENTS</h1>
+          <h1 class="events-title">UPCOMING EVENTS</h1>
         </div>
       </section>
 
       <?php
         if( get_field("home_about")){
           echo '<section id=home-about class=home-section>';
-          echo '<div class=wrap-about>';
+          echo '<div class="home-wrap about-wrap">';
           echo get_field("home_about");
           echo '</div>';
           echo '<svg width="100%" height="100%" viewbox="0 0 800 600" preserveAspectRatio="xMinYMin slice" class="diagonal-one">';
@@ -87,7 +87,7 @@ get_header(); ?>
       <?php
         if( get_field("home_location")){
           echo '<section id=home-location class=home-section>';
-          echo '<div class=wrap-location>';
+          echo '<div class="home-wrap location-wrap">';
           echo get_field("home_location");
           echo '</div>';
           echo '<svg width="100%" height="150%" viewbox="0 0 800 600" preserveAspectRatio="xMinYMin slice" class="diagonal-two">';
@@ -106,6 +106,34 @@ get_header(); ?>
         }
       ?>
 
+
+      <section id="home-index" class="home-section">
+        <div class="home-wrap index-wrap">
+          <h1 class="home-title index-title">Blog</h1>
+        </div>
+        <div class="index-container">
+      <?php
+        $args = array(
+        	'post_type' => 'post',
+          'posts_per_page' => 4,
+          'ignore_sticky_posts' => 1,
+        );
+        $the_query = new WP_Query( $args );
+
+        // The Loop
+        if ( $the_query->have_posts() ) {
+        	while ( $the_query->have_posts() ) {
+        		$the_query->the_post();
+            get_template_part( 'template-parts/content', 'index' );
+        	}
+        	/* Restore original Post Data */
+        	wp_reset_postdata();
+        } else {
+        	// no posts found
+        }
+      ?>
+        </div>
+      </section>
 
     </main>
 

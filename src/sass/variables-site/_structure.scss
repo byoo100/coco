@@ -32,6 +32,8 @@ $page-lg: 800px;
 $page-xl: 1000px;
 $page-xxl: 1200px;
 
+$nav-mainSize: 6.25em;
+$nav-preSize: 3em;
 
 .nav-container{
   @include container($nav-lg);

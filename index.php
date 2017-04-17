@@ -19,10 +19,21 @@ get_header(); ?>
 			<p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive,
 			mobile-first projects on the web.</p>
 		</div>
+
+		<?php
+			$page_id     = get_queried_object_id();
+
+			echo "<div class='featured-container'>";
+			echo "<div class='featured-image'>";
+			echo get_the_post_thumbnail($page_id, 'featured-lg');
+			echo "</div>";
+			echo "</div>";
+
+		?>
 	</section>
 
-	<div id="primary" class="content-area blog-index">
-		<main id="main" class="site-main container-index" role="main">
+	<div id="primary" class="content-area index-blog">
+		<main id="main" class="site-main index-container" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>

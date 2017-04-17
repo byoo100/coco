@@ -22,7 +22,6 @@ if(get_field('featured_video')){
 	preg_match('/src="(.+?)"/', $video, $matches);
 	$src = $matches[1];
 
-
 	// add extra params to iframe src
 	$params = array(
 	    'controls'    => 2,
@@ -39,7 +38,6 @@ if(get_field('featured_video')){
 	$attributes = 'frameborder="0"';
 
 	$video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
-
 }
 ?>
 
