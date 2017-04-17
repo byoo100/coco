@@ -59,6 +59,10 @@ get_header(); ?>
 
   ?>
 
+  <div id="primary" class="content-area">
+
+    <main id="main" class="site-main" role="main">
+
 
       <section id="home-events">
         <div class="page-container">
@@ -68,28 +72,44 @@ get_header(); ?>
 
       <?php
         if( get_field("home_about")){
-          echo '<section id=home-about>';
+          echo '<section id=home-about class=home-section>';
           echo '<div class=wrap-about>';
           echo get_field("home_about");
           echo '</div>';
+          echo '<svg width="100%" height="100%" viewbox="0 0 800 600" preserveAspectRatio="xMinYMin slice" class="diagonal-one">';
+          echo '<path d="M 0 0, 500 0, 0 100" fill="#20a088" opacity="1" />';
+          echo '</svg>';
           echo '</section>';
         }
-
       ?>
 
+
+      <?php
+        if( get_field("home_location")){
+          echo '<section id=home-location class=home-section>';
+          echo '<div class=wrap-location>';
+          echo get_field("home_location");
+          echo '</div>';
+          echo '<svg width="100%" height="150%" viewbox="0 0 800 600" preserveAspectRatio="xMinYMin slice" class="diagonal-two">';
+          echo '<path d="M 0 200, 800 50, 800 600, 0 600" fill="#20a088" opacity="1" />';
+          echo '</svg>';
+          echo '</section>';
+        }
+      ?>
 
 
       <?php
         if( get_field("home_info")){
-          echo '<section id=home-info>';
+          echo '<section id=home-info class=home-section>';
           echo get_field("home_info");
           echo '</section>';
         }
-
       ?>
 
 
+    </main>
 
+</div>
 
 
 
