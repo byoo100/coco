@@ -75,7 +75,7 @@
 
 	 	 if ( -1 == this.className.indexOf( 'toggled' ) ){
 	 		 this.className += ' toggled';
-	 		 submenu.style.display = 'inline-block';
+	 		 submenu.style.display = 'table';
 	 	 } else {
 	 		 this.className = this.className.replace( ' toggled', '' );
 	 		 submenu.style.display = 'none';
