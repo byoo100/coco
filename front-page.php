@@ -77,7 +77,7 @@ get_header(); ?>
           echo get_field("home_about");
           echo '</div>';
           echo '<svg width="100%" height="100%" viewbox="0 0 800 600" preserveAspectRatio="xMinYMin slice" class="diagonal-one">';
-          echo '<path d="M 0 0, 500 0, 0 100" fill="#20a088" opacity="1" />';
+          echo '<path d="M 0 0, 400 0, 0 80" fill="#20a088" opacity="1" />';
           echo '</svg>';
           echo '</section>';
         }

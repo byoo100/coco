@@ -31,10 +31,10 @@
   </div><!--pre-menubar-->
 
 
+
+
   <div id="nav-menubar">
     <div class="nav-container">
-
-    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'coco' ); ?></button>
 
     <div id="site-branding">
       <object type="image/svg+xml" class="logo" data="<?php echo get_template_directory_uri(); ?>/src/img/COCO-logo.svg" style="display:inline-block; width:80px; height:80px;"></object>
@@ -45,14 +45,30 @@
       </div>
     </div><!-- .site-branding -->
 
+    <button class="menu-toggle"></button>
+
     <?php wp_nav_menu( array(
         'theme_location' => 'primary',
         'container' => 'ul',
         'menu_id' => 'nav-list'
     ) ); ?>
 
+
+
     </div><!--container-nav-->
   </div><!-- #nav-menubar -->
+
+  <div id="mobile-menu">
+    <button class="close-toggle"></button>
+    <div class="overlay"></div>
+
+    <?php wp_nav_menu( array(
+        'theme_location' => 'primary',
+        'container' => 'ul',
+        'menu_id' => 'mobile-list'
+    ) ); ?>
+
+  </div><!-- #mobile-menu -->
 
 
   <!-- <?php

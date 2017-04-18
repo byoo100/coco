@@ -5,65 +5,83 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, menu, menubar, has_children = [], dropdown = [], submenu;
-
+	var menuDesktop, menuMobile, children_desktop = [], children_mobile = [];
+	var submenu, buttonDesktop, buttonMobile, buttonPrevious;
 	//Cache DOM
-	container = document.getElementById( 'navbar-main' );
-	menubar = document.getElementById( 'nav-menubar' );
-	menu = document.getElementById( 'nav-list' );
-	has_children = menu.getElementsByClassName('menu-item-has-children');
-
-	//Init
-	addSubMenu();
-
-	function addSubMenu(){
-		for (var i = 0; i < has_children.length; i++){
-			var button = document.createElement('button');
-			button.className = "dropdown-toggle";
-
-			insertAfter(has_children[i].firstChild, button);
-
-			button.onclick = function(){
-				submenu = this.nextElementSibling
-
-				if ( -1 == this.className.indexOf( 'toggled' ) ){
-					this.className += ' toggled';
-					submenu.style.display = 'block';
-				} else {
-					this.className = this.className.replace( ' toggled', '' );
-					submenu.style.display = 'none';
-				}
-			}//onclick
+	menuDesktop = document.getElementById( 'nav-list' );
+	menuMobile = document.getElementById( 'mobile-list' );
+	children_desktop = menuDesktop.getElementsByClassName('menu-item-has-children');
+	children_mobile = menuMobile.getElementsByClassName('menu-item-has-children');
 
 
 
+	// DESKTOP
+	//========
+	for (var i = 0; i < children_desktop.length; i++){
+		buttonDesktop = document.createElement('button');
+		buttonDesktop.className = "dropdown-toggle";
 
-		}//for
-	}//addSubMenu
+		insertAfter(children_desktop[i].firstChild, buttonDesktop);
+
+		desktopDropdown(buttonDesktop);
+	}//for DESKTOP
+ //=================
 
 
-	function dropdownToggle(){
 
-		for(var i = 0; i < dropdown.length; i++){
+ // MOBILE
+ //========
+ for (var i = 0; i < children_mobile.length; i++){
+	 buttonMobile = document.createElement('button');
+	 buttonMobile.className = "dropdown-toggle";
 
-			var sub = dropdown[i].nextElementSibling;
+	 buttonPrevious = document.createElement('li');
+	 buttonPrevious.innerHTML = '<a class="goBack">Back</a>';
 
-			dropdown[i].onclick = function(){
-				if ( -1 == this.className.indexOf( 'toggled' ) ){
-					this.className += ' toggled';
-					sub.className += ' up';
-					console.log(i);
-					console.log(sub);
-				} else {
-					this.className = this.className.replace( ' toggled', '' );
-					sub = sub.className.replace( ' up', '' );
-					console.log(i);
-					console.log(sub);
-				}
-			}//onclick
-		}
-	}
+	 insertAfter(children_mobile[i].firstChild, buttonMobile);
 
+	 submenu = buttonMobile.nextElementSibling;
+	 submenu.insertBefore(buttonPrevious, submenu.firstChild);
+
+	 mobileDropdown(buttonMobile);
+
+	 //mobileDropdown(buttonMobile);
+ }//for MOBILE
+//=================
+
+
+
+
+	function desktopDropdown(button){
+		// BUTTON
+	  button.onclick = function(){
+	 	 submenu = this.nextElementSibling;
+
+	 	 if ( -1 == this.className.indexOf( 'toggled' ) ){
+	 		 this.className += ' toggled';
+	 		 submenu.style.display = 'block';
+	 	 } else {
+	 		 this.className = this.className.replace( ' toggled', '' );
+	 		 submenu.style.display = 'none';
+	 	 }
+	  }//MOBILE onclick
+	}//desktopDropdown
+
+
+	function mobileDropdown(button){
+		// BUTTON
+		button.onclick = function(){
+	 	 submenu = this.nextElementSibling;
+
+	 	 if ( -1 == this.className.indexOf( 'toggled' ) ){
+	 		 this.className += ' toggled';
+	 		 submenu.style.display = 'inline-block';
+	 	 } else {
+	 		 this.className = this.className.replace( ' toggled', '' );
+	 		 submenu.style.display = 'none';
+	 	 }
+	  }//MOBILE onclick
+	}//mobileDropdown
 
 	function insertAfter(referenceNode, newNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);

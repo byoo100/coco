@@ -36,41 +36,8 @@
 	transform: translate(-50%, 0);
 }
 
-
-@mixin diag-before(){
-	position: relative;
-	overflow: hidden;
-
-	&:before {
-			content: '';
-			position: absolute;
-			width: 200%;
-			height: 100%;
-			background-color: rgb(255, 255, 255); /* fallback */
-			background-color: rgba(0, 255, 255, 0.5);
-			top: -100%;
-			left: -20%;
-			-webkit-transform: rotate(175deg);
-			-moz-transform: rotate(175deg);
-			transform: rotate(175deg);
-	}
-}
-
-@mixin diag-after(){
-	position: relative;
-	overflow: hidden;
-
-	&:after {
-			content: '';
-			position: absolute;
-			left: 20%;
-			width: 100%;
-			height: 200%;
-			background-color: rgb(255, 255, 255); /* fallback */
-			background-color: rgba(255, 255, 255, 0.5);
-			top: 0;
-			-webkit-transform: rotate(45deg);
-			-moz-transform: rotate(45deg);
-			transform: rotate(45deg);
-	}
+@mixin centerY(){
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
 }

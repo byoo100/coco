@@ -1,3 +1,9 @@
+body.noscroll{
+	@media screen and (max-width: $size-sm){
+		overflow: hidden;
+	}
+}
+
 .site-content{
 	@include clearfix();
 }
