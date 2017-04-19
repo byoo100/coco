@@ -1,32 +1,24 @@
-.featured-blog{
-    background: url('../img/pexels-photo-300412.jpg') no-repeat top center;
-    background-size: cover;
-    min-height: 300px;
-    position: relative;
-    padding-bottom: 20%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    height: auto;
-}
-
 .index-blog{
   background-color:#efefef;
   padding-top: 2em;
 } //blog-index
 
 .index-container{
-  @include container(1000px);
+  //size in structure.scss
   display: block;
+  padding: 0 1em;
 
   article{
-    @include span(4 of 12);
+    @include span(12 of 12 split);
     margin-bottom: 1.25em;
     background-color: #ffffff;
     box-shadow: 3px 3px 6px #333333;
     border-radius: 5px;
     overflow: hidden;
-    &:nth-child(3n+0){ margin-right: 0; }
+
+    @media screen and (min-width: $size-md) and (max-width: $size-lg){ @include span(6 of 12); margin-left: 0; &:nth-child(2n+0){ margin-right: 0; } }
+    @media screen and (min-width: $size-lg) and (max-width: $size-xl){ @include span(4 of 12); margin-left: 0; &:nth-child(3n+0){ margin-right: 0; } }
+    @media screen and (min-width: $size-xl){ @include span (3 of 12); margin-left: 0; &:nth-child(4n+0){ margin-right: 0; } }
 
     .index-image{
       img{

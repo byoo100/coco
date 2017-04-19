@@ -45,7 +45,7 @@
       </div>
     </div><!-- .site-branding -->
 
-    <button class="menu-toggle"></button>
+    <button class="mobile-toggle"></button>
 
     <?php wp_nav_menu( array(
         'theme_location' => 'primary',
@@ -53,14 +53,12 @@
         'menu_id' => 'nav-list'
     ) ); ?>
 
-
-
     </div><!--container-nav-->
   </div><!-- #nav-menubar -->
 
   <div id="mobile-menu">
     <button class="close-toggle"></button>
-    <div class="overlay"></div>
+    <div class="dark-overlay"></div>
 
     <?php wp_nav_menu( array(
         'theme_location' => 'primary',
@@ -69,11 +67,5 @@
     ) ); ?>
 
   </div><!-- #mobile-menu -->
-
-
-  <!-- <?php
-      $custom_logo_id = get_theme_mod( 'custom_logo' );
-      $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-  ?> -->
 
 </nav><!-- #navbar-main -->

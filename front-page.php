@@ -28,7 +28,7 @@ get_header(); ?>
       get_sub_field(welcome_x) ? $pos_x = get_sub_field(welcome_x) : $pos_x = '50%';
       get_sub_field(welcome_y) ? $pos_x = get_sub_field(welcome_y) : $pos_y = '50%';
 
-      $image_set = '<img src="%1$s" srcset="%2$s"  sizes="%3$s" class="featured-home" style="object-position:%4$s %5$s"></img>';
+      $image_set = '<img src="%1$s" srcset="%2$s"  sizes="%3$s" style="object-position:%4$s %5$s"></img>';
 
       $image_set = sprintf( $image_set,
     		wp_get_attachment_image_url( $image_id, 'featured-lg' ),
@@ -77,7 +77,7 @@ get_header(); ?>
           echo get_field("home_about");
           echo '</div>';
           echo '<svg width="100%" height="100%" viewbox="0 0 800 600" preserveAspectRatio="xMinYMin slice" class="diagonal-one">';
-          echo '<path d="M 0 0, 400 0, 0 80" fill="#20a088" opacity="1" />';
+          echo '<path d="M 0 0, 400 0, 0 40" fill="#20a088" opacity="1" />';
           echo '</svg>';
           echo '</section>';
         }
@@ -90,8 +90,8 @@ get_header(); ?>
           echo '<div class="home-wrap location-wrap">';
           echo get_field("home_location");
           echo '</div>';
-          echo '<svg width="100%" height="150%" viewbox="0 0 800 600" preserveAspectRatio="xMinYMin slice" class="diagonal-two">';
-          echo '<path d="M 0 200, 800 50, 800 600, 0 600" fill="#20a088" opacity="1" />';
+          echo '<svg width="100%" height="130%" viewbox="0 0 800 600" preserveAspectRatio="xMinYMin slice" class="diagonal-two">';
+          echo '<path d="M 0 125, 800 25, 800 600, 0 600" fill="#20a088" opacity="1" />';
           echo '</svg>';
           echo '</section>';
         }

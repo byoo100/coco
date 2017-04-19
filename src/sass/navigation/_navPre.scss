@@ -38,17 +38,18 @@
           text-decoration: none;
         }
       }
-    }
+    } //ul
 
     #site-contact{
+      display: none;
+      @media screen and (min-width: $size-mobile){ display: block; }
+
       #site-mail{
         display: inline-block;
         .email{ display: inline-block; }
         .email.name:before{ display: inline; content:'\f0e0'; font-family: $font__awesome; margin-right: 0.5em; }
         .email.name:after{ display: inline; content:'@'; margin-right: -0.25em; }
         .email.mail:after{ display: inline; content:'.'; margin-right: -0.25em; }
-
-
       }//#site-mail
 
       #site-phone{

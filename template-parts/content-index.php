@@ -15,7 +15,7 @@
     if( has_post_thumbnail() ) {
       echo "<div class='index-image'>";
       echo "<a href=" . get_permalink() . ">";
-        the_post_thumbnail('featured-xs');
+        the_post_thumbnail('featured-sm');
       echo "</a>";
       echo "</div>";
     }

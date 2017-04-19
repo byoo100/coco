@@ -14,8 +14,22 @@
 
 get_header(); ?>
 
+	<?php
+		if(has_post_thumbnail()){
+			echo '<section class="image-featured">';
+			the_post_thumbnail('featured-lg');
+			the_title( '<h1 class="page-title">', '</h1>' );
+			echo '<div class="vignette"></div>';
+			echo '</section>';
+		} else {
+			echo '<header class="entry-header page-container">';
+			the_title( '<h1 class="entry-title">', '</h1>' );
+			echo '</header>';
+		}
+	?>
+
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main page-container" role="main">
 
 			<?php
 			while ( have_posts() ) : the_post();
@@ -34,5 +48,4 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
