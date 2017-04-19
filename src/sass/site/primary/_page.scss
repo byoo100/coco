@@ -1,9 +1,10 @@
 .image-featured{
-  min-height: 500px;
+  height: 300px;
   position: relative;
   overflow: hidden;
   max-width: 100%;
-  height: calc( 100vh - #{$nav-mainSize} - #{$nav-preSize} );
+  @media screen and (min-width: $size-sm){ height: 500px }
+  @media screen and (min-width: $size-lg){ height: 700px }
 
   img{
     display: block;
@@ -20,7 +21,8 @@
     @include text-stroke();
     display: block;
     font-size: 3em;
-    margin: 0 0.75em;
+    margin: 0;
+    padding: 0 0.75em;
     width: 100%;
     text-align: center;
     text-transform: uppercase;

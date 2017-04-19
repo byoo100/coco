@@ -68,7 +68,7 @@ $nav-preSize: 3em;
 
 .index-container{
   @include container($index-xs);
-  @media screen and (min-width: $size-md) { @include container($index-md); }
+  @media screen and (min-width: $size-sm) { @include container($index-md); }
   @media screen and (min-width: $size-lg) { @include container($index-lg); }
   @media screen and (min-width: $size-xl) { @include container($index-xl); }
 }
