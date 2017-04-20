@@ -11,15 +11,13 @@
 
 <article id="post-<?php the_ID();?>">
 
-    <?php
-    if( has_post_thumbnail() ) {
-      echo "<div class='index-image'>";
-      echo "<a href=" . get_permalink() . ">";
-        the_post_thumbnail('featured-sm');
-      echo "</a>";
-      echo "</div>";
-    }
-    ?>
+  <?php if(get_the_post_thumbnail()) : ?>
+	<div class="index-image">
+		<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+			<?php the_post_thumbnail('featured-sm'); ?>
+		</a>
+	</div>
+	<?php endif; ?>
 
 	<header class="entry-header">
 
