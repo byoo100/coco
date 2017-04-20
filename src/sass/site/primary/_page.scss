@@ -4,7 +4,7 @@
   overflow: hidden;
   max-width: 100%;
   @media screen and (min-width: $size-sm){ height: 500px }
-  @media screen and (min-width: $size-lg){ height: 700px }
+  @media screen and (min-width: $size-xl){ height: 700px }
 
   img{
     display: block;

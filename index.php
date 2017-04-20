@@ -25,7 +25,7 @@ get_header(); ?>
 	?>
 
 	<div id="primary" class="content-area index-blog">
-		<main id="main" class="site-main index-container" role="main">
+		<main id="blog-area" class="site-main index-container" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>
@@ -53,6 +53,7 @@ get_header(); ?>
 		?>
 
 		</main><!-- #main -->
+
 	</div><!-- #primary -->
 
 <?php

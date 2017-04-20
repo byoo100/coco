@@ -59,25 +59,22 @@
 	margin-top: -2em;
 	text-align: center;
 
-	ul {
+	.pagination {
 		display: inline-block;
 		margin: 0;
 		padding: 0;
 		list-style-type: none;
 
-		li {
+		a,
+		span {
 			display: inline-block;
 			margin-bottom: 1em;
-
-			a {
-				padding: .3em 1.4em;
-			}
+			padding: .3em 1.4em;
 		}
-	}
-
-	.current {
-		padding: .8em 1.1em;
-		font-weight: 700;
+		.current {
+			padding: .8em 1.1em;
+			font-weight: 700;
+		}
 	}
 }
 
@@ -98,7 +95,6 @@
 
 	a {
 		display: block;
-		width: 100%;
 		text-decoration: none;
 		padding: 1em;
 		color: #818286;

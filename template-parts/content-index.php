@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID();?>" class='matchHeight'>
+<article id="post-<?php the_ID();?>">
 
     <?php
     if( has_post_thumbnail() ) {

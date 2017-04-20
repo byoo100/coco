@@ -40,7 +40,7 @@ get_header(); ?>
 
       echo '<section class=featured-home>';
       echo $image_set;
-      echo '<div class="text-area text-stroke">';
+      echo '<div class="text-area">';
       echo $text_content;
       echo '</div>';
       echo '</section>';

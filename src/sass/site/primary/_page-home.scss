@@ -16,6 +16,7 @@
   }
 
   .text-area{
+    @include text-stroke();
     position:absolute;
     bottom: 15%;
     left: 5%;

@@ -1,3 +1,0 @@
-(function ($){
-  $('.matchHeight').matchHeight();
-})(jQuery);
