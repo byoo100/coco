@@ -57,3 +57,13 @@
 							-1px 1px 0 #000,
 							 1px 1px 0 #000;
 }
+
+@mixin featured-img(){
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 50% 50%;
+	z-index: -999999;
+}

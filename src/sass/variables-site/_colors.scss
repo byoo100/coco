@@ -1,3 +1,11 @@
+$black_reg: #121212;
+$darkblue_reg: #123b72;
+$green_reg: #19816e;
+$green_light: #20a088;
+$purple_light: #bc9dee;
+$orange_reg: #df8b2d;
+$yellow_light: #eedd90;
+
 
 $color__background-body: #fff;
 $color__background-screen: #f1f1f1;
@@ -9,10 +17,10 @@ $color__background-ins: #fff9c0;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: #121212;
-$color__link-visited: #121212;
-$color__link-hover: #20a088;
-$color__text-main: #121212;
+$color__link: $black_reg;
+$color__link-visited: $black_reg;
+$color__link-hover: $green_light;
+$color__text-main: $black_reg;
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;

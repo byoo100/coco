@@ -164,7 +164,7 @@ function coco_scripts() {
 
 	// GOOGLE MAP
 	wp_enqueue_script( 'coco-google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAFEVbGugLqPUEPC3Y9pr2uHOe5YXVud3w', array( ), false, true );
-	wp_enqueue_script( 'promise-google-map-js', get_template_directory_uri() . '/src/js/google-map.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'coco-google-map-js', get_template_directory_uri() . '/src/js/google-map.js', array( 'jquery' ), false, true );
 
 
 
@@ -210,7 +210,11 @@ add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
 function my_ajax_pagination() {
     $query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
 
-    $query_vars['paged'] = $_POST['page'];
+    //$query_vars['paged'] = $_POST['page'];
+		$query_vars = array(
+			'post_status' => publish,
+			'paged' => $_POST['page'],
+		);
 
     query_posts( $query_vars );
 
@@ -241,7 +245,7 @@ function remove_default_image_sizes( $sizes) {
     unset( $sizes['medium_large']);
     unset( $sizes['large']);
 
-    return $sizes;
+		return $sizes;
 }
 add_filter('intermediate_image_sizes_advanced', 'remove_default_image_sizes');
 

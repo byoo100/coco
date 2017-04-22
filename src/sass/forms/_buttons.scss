@@ -10,13 +10,29 @@ input[type="submit"] {
 	@include font-size(0.75);
 	line-height: 1;
 	padding: .6em 1em .4em;
+}
 
-	&:hover {
-		border-color: $color__border-button-hover;
+.btn{
+	display: inline-block;
+	background: none;
+	padding: 0;
+
+	a{
+		display: block;
+		margin: 0;
+		padding: 1em;
+		text-decoration: none;
 	}
+}
 
-	&:active,
-	&:focus {
-		border-color: $color__border-button-focus;
+.btn-yellow-light{
+	border: 2px solid $yellow_light;
+	a{
+		color: $yellow_light;
+
+		&:hover{
+			color: $color__link;
+			background-color: $yellow_light;
+		}
 	}
 }

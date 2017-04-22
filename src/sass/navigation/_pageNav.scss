@@ -21,11 +21,18 @@
 			@media screen and (min-width: $size-sm) {
 				padding-bottom: 0;
 			}
+
+			a{ &:before{ content:'Previous:'; } }
+		}
+
+		.nav-next{
+			a{ &:before{ content:'Next:'; } }
 		}
 
 		.nav-next,
 		.nav-previous {
-			background-color: #212a34;
+			background-color: darken($green_reg, 15%);
+			a{ width: 100%; color: #f2f2f2; &:before{ display: block; color: #eee; }}
 		}
 
 		.meta-nav {
