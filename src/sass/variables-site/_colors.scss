@@ -10,7 +10,7 @@ $yellow_light: #eedd90;
 $color__background-body: #fff;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
-$color__background-button: #e6e6e6;
+$color__background-button: #fff;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 
@@ -22,10 +22,12 @@ $color__link-visited: $black_reg;
 $color__link-hover: $green_light;
 $color__text-main: $black_reg;
 
-$color__border-button: #ccc #ccc #bbb;
+$color__border-button: $black_reg;
 $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
 
+$color_text_main: $black_reg;
+$color_text_header: $black_reg;
 $color__navigation_pre: #f9f9f9;

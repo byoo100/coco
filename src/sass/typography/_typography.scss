@@ -1,3 +1,25 @@
+html{
+	&:lang(en-US){
+		body, button, input, select, textarea{
+			@include font-size(0.875);
+
+			@media screen and (min-width: $size-md){ @include font-size(1); }
+			@media screen and (min-width: $size-xxl){ @include font-size(1.125); }
+		}
+	}//en-US
+	
+	&:lang(ko-KR){
+		body, button, input, select, textarea{
+			@include font-size(1);
+
+			@media screen and (min-width: $size-md){ @include font-size(1.125); }
+			@media screen and (min-width: $size-xxl){ @include font-size(1.25); }
+		}
+
+	}//ko-KR
+}//html
+
+
 body,
 button,
 input,
@@ -5,10 +27,7 @@ select,
 textarea {
 	color: $color__text-main;
 	font-family: $font__main;
-	@include font-size(0.875);
 	line-height: $font__line-height-body;
-
-	@media screen and (min-width: 1000px){ @include font-size(1); }
 }
 
 @import "headings";
