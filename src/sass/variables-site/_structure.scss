@@ -40,8 +40,8 @@ $index-lg: 1000px;
 $index-xl: 1300px;
 
 $mobile-mainSize: 4em;
-$nav-mainSize: 6.25em;
-$nav-preSize: 3em;
+$nav-mainSize: 6em;
+$nav-preSize: 2.8125em;
 
 .nav-container{
   @include container($nav-lg);
