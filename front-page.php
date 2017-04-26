@@ -14,11 +14,14 @@
 
 get_header(); ?>
 
-
+  <section class="featured-home">
   <?php
 
   // check if the flexible content field has rows of data
-  if( have_rows('home_welcome') ): the_row();
+  if( have_rows('home_welcome') ):
+
+    while( have_rows('home_welcome') ) :
+    the_row();
 
     if( get_row_layout() == 'welcome_section' ):
 
@@ -26,7 +29,7 @@ get_header(); ?>
       $text_content = get_sub_field('welcome_text');
 
       get_sub_field(welcome_x) ? $pos_x = get_sub_field(welcome_x) : $pos_x = '50%';
-      get_sub_field(welcome_y) ? $pos_x = get_sub_field(welcome_y) : $pos_y = '50%';
+      get_sub_field(welcome_y) ? $pos_y = get_sub_field(welcome_y) : $pos_y = '50%';
 
       $image_set = '<img src="%1$s" srcset="%2$s"  sizes="%3$s" style="object-position:%4$s %5$s"></img>';
 
@@ -38,26 +41,22 @@ get_header(); ?>
         $pos_y
     	);
 
-      echo '<section class=featured-home>';
+      echo '<div class="image-slider">';
+      echo '<div class="image-dark"></div>';
       echo $image_set;
       echo '<div class="text-area">';
       echo $text_content;
       echo '</div>';
-      echo '</section>';
-
-    elseif( get_row_layout() == 'download' ):
-
-    	$file = get_sub_field('file');
+      echo '</div>';
 
     endif;
 
-  else :
-
-      // no layouts found
+    endwhile;
 
   endif;
 
   ?>
+</section>
 
   <div id="primary" class="content-area">
 

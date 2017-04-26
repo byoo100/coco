@@ -3,32 +3,36 @@
 
   <div id="desktop-main">
     <section id="desktop-pre">
-      <div class="nav-container">
-        <?php include("nav-contact.php"); ?>
+      <div class="nav-container nav-flex">
+        <?php
+          include("nav-contact.php");
 
-        <?php wp_nav_menu( array(
+          wp_nav_menu( array(
             'theme_location' => 'social',
             'container' => 'ul',
             'menu_class' => 'social-list',
             'link_before' => '<span class=screen-reader-text>',
             'link_after' => '</span>'
-        ) ); ?>
-        <?php wp_nav_menu( array(
+        ) );
+          wp_nav_menu( array(
             'theme_location' => 'language',
             'container' => 'ul',
             'menu_class' => 'lang-list'
-        ) ); ?>
-
+        ) );
+        ?>
       </div><!--.nav-container-->
     </section><!--#desktop-pre-->
 
     <section id="desktop-menu">
-      <div class="nav-container">
+      <div class="nav-container nav-flex">
         <div class="site-branding">
           <object type="image/svg+xml" class="desktop-logo" data="<?php echo get_template_directory_uri(); ?>/src/img/COCO-logo.svg" style="max-width:100px; max-height:100px;"></object>
           <div class="site-info">
             <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-            <p class="site-description"><?php echo get_bloginfo( 'description', 'display' ); ?></p>
+            <p class="site-description">
+              <span class="nowrap">Center for Opportunities,</span>
+              <span class="nowrap">Choices &amp; Outcomes</span>
+            </p>
           </div><!--.site-info-->
         </div><!--.site-branding-->
 
@@ -68,8 +72,6 @@
       ) ); ?>
 
       <section id="mobile-sub">
-        <?php include("nav-contact.php"); ?>
-
         <?php wp_nav_menu( array(
             'theme_location' => 'social',
             'container' => 'ul',
@@ -77,6 +79,8 @@
             'link_before' => '<span class=screen-reader-text>',
             'link_after' => '</span>'
         ) ); ?>
+
+        <?php //include("nav-contact.php"); ?>
       </section><!--#mobile-sub-->
     </section><!--#mobile-menu-->
   </div><!--#mobile-main-->

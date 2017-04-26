@@ -1,4 +1,5 @@
 html{
+	&:lang(ko-KR),
 	&:lang(en-US){
 		body, button, input, select, textarea{
 			@include font-size(0.875);
@@ -7,16 +8,16 @@ html{
 			@media screen and (min-width: $size-xxl){ @include font-size(1.125); }
 		}
 	}//en-US
-	
-	&:lang(ko-KR){
-		body, button, input, select, textarea{
-			@include font-size(1);
 
-			@media screen and (min-width: $size-md){ @include font-size(1.125); }
-			@media screen and (min-width: $size-xxl){ @include font-size(1.25); }
-		}
-
-	}//ko-KR
+	// &:lang(ko-KR){
+	// 	body, button, input, select, textarea{
+	// 		@include font-size(1);
+	//
+	// 		@media screen and (min-width: $size-md){ @include font-size(1.125); }
+	// 		@media screen and (min-width: $size-xxl){ @include font-size(1.25); }
+	// 	}
+	//
+	// }//ko-KR
 }//html
 
 
