@@ -23,9 +23,9 @@ get_header(); ?>
     while( have_rows('home_welcome') ) :
     the_row();
 
-    if( get_row_layout() == 'welcome_section' ):
+    if( get_row_layout() == 'welcome_image' ):
 
-    	$image_id = get_sub_field('welcome_image');
+    	$image_id = get_sub_field('welcome_img');
       $text_content = get_sub_field('welcome_text');
 
       get_sub_field(welcome_x) ? $pos_x = get_sub_field(welcome_x) : $pos_x = '50%';
