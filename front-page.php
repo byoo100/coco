@@ -14,8 +14,10 @@
 
 get_header(); ?>
 
-  <section class="featured-home">
+  <section id="home-featured">
   <?php
+
+  $i = 0;
 
   // check if the flexible content field has rows of data
   if( have_rows('home_welcome') ):
@@ -27,6 +29,7 @@ get_header(); ?>
 
     	$image_id = get_sub_field('welcome_img');
       $text_content = get_sub_field('welcome_text');
+
 
       get_sub_field(welcome_x) ? $pos_x = get_sub_field(welcome_x) : $pos_x = '50%';
       get_sub_field(welcome_y) ? $pos_y = get_sub_field(welcome_y) : $pos_y = '50%';
@@ -41,7 +44,7 @@ get_header(); ?>
         $pos_y
     	);
 
-      echo '<div class="image-slider">';
+      echo '<div class="image-slider image-' . $i . '">';
       echo '<div class="image-dark"></div>';
       echo $image_set;
       echo '<div class="text-area">';
@@ -49,10 +52,10 @@ get_header(); ?>
       echo '</div>';
       echo '</div>';
 
+      $i++;
+
     endif;
-
     endwhile;
-
   endif;
 
   ?>
