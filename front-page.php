@@ -15,10 +15,9 @@
 get_header(); ?>
 
   <section id="home-featured">
+
   <?php
-
   $i = 0;
-
   // check if the flexible content field has rows of data
   if( have_rows('home_welcome') ):
 
@@ -29,7 +28,6 @@ get_header(); ?>
 
     	$image_id = get_sub_field('welcome_img');
       $text_content = get_sub_field('welcome_text');
-
 
       get_sub_field(welcome_x) ? $pos_x = get_sub_field(welcome_x) : $pos_x = '50%';
       get_sub_field(welcome_y) ? $pos_y = get_sub_field(welcome_y) : $pos_y = '50%';
@@ -57,14 +55,12 @@ get_header(); ?>
     endif;
     endwhile;
   endif;
-
   ?>
 </section>
 
+
   <div id="primary" class="content-area">
-
     <main id="main" class="site-main" role="main">
-
 
       <section id="home-events">
         <div class="page-container event-wrap">
@@ -105,7 +101,6 @@ get_header(); ?>
         }
       ?>
 
-
       <?php
         if( get_field("home_location")){
           echo '<section id=home-location class=home-section>';
@@ -119,13 +114,34 @@ get_header(); ?>
         }
       ?>
 
-
       <?php
-        if( get_field("home_info")){
-          echo '<section id=home-info class=home-section>';
-          echo get_field("home_info");
-          echo '</section>';
-        }
+      echo '<section id="home-resources">';
+      echo '<ul>';
+      // check if the flexible content field has rows of data
+      if( have_rows('home_resouces') ):
+
+        $i = 0;
+
+        while( have_rows('home_resouces') ) :
+        the_row();
+
+        if( get_row_layout() == 'resource_list_item' ):
+
+        	$resource_title = get_sub_field('resource_title');
+          $resource_text = get_sub_field('resource_item');
+          $i++;
+
+          echo '<li class="resource-item item-' . $i . '">';
+          echo '<h2 class="resource-title">' . $resource_title . '</h2>';
+          echo '<span class="resource-text">' . $resource_text . '</span>';
+          echo '</li>';
+
+        endif;
+        endwhile;
+      endif;
+
+      echo '</ul>';
+      echo '</section>';
       ?>
 
 
