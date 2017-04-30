@@ -10,7 +10,7 @@ $susy: (
 );
 
 $size-xs: 440px;
-$size-sm: 700px;
+$size-sm: 760px;
 $size-md: 900px;
 $size-lg: 1200px;
 $size-xl: 1400px;
@@ -29,10 +29,10 @@ $single-xl: 1000px;
 $single-xxl: 1200px;
 
 $page-sm: 100%;
-$page-md: 600px;
-$page-lg: 800px;
-$page-xl: 1000px;
-$page-xxl: 1200px;
+$page-md: 700px;
+$page-lg: 1000px;
+$page-xl: 1200px;
+$page-xxl: 1400px;
 
 $index-xs: 400px;
 $index-md: 700px;
@@ -51,6 +51,7 @@ $nav-preSize: 2.8125em;
 
 .page-container{
   @include container($page-sm);
+  padding: 0 1em;
   @media screen and (min-width: $size-md) { @include container($page-md); }
   @media screen and (min-width: $size-lg) { @include container($page-lg); }
   @media screen and (min-width: $size-xl) { @include container($page-xl); }

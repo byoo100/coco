@@ -1,21 +1,24 @@
 .single-container{
-  margin-top: 1.5em;
+  padding-top: 1.5em;
 
   .single-article{
     @include span(12 split);
-    background-color:#ffffff;
     padding:0 1em;
 
     .featured-container{
       margin:0 -1em;
+      text-align: center;
 
       .featured-image{
+        display: inline-block;
         margin: 0 auto;
         img{ display: block; margin: 0 auto; }
       }
     }
 
     .entry-header{
+      margin-bottom: 1.5em;
+
       .entry-title{
         font-size: 2.6em;
         margin: 0.5em 0 0.25em;
@@ -53,6 +56,10 @@
         .cat-links:before{ content:'\f02c'; }
       }//entry-meta
     }//entry-header
+
+    .entry-content{
+      margin: 0 0 1em;
+    }//.entry-content
 
     .entry-footer{
       .tags-links{

@@ -145,34 +145,35 @@ get_header(); ?>
       ?>
 
 
-      <section id="home-index" class="home-section">
+      <section id="home-index">
         <div class="home-wrap index-wrap">
           <?php
              $blog_title = get_the_title( get_option('page_for_posts', true) );
              echo '<h1 class="home-title index-title">' . $blog_title . '</h1>';
           ?>
         </div>
-        <div class="index-container">
-      <?php
-        $args = array(
-        	'post_type' => 'post',
-          'posts_per_page' => 4,
-          'ignore_sticky_posts' => 1,
-        );
-        $the_query = new WP_Query( $args );
 
-        // The Loop
-        if ( $the_query->have_posts() ) {
-        	while ( $the_query->have_posts() ) {
-        		$the_query->the_post();
-            get_template_part( 'template-parts/content', 'index' );
-        	}
-        	/* Restore original Post Data */
-        	wp_reset_postdata();
-        } else {
-        	// no posts found
-        }
-      ?>
+        <div class="index-container">
+        <?php
+          $args = array(
+          	'post_type' => 'post',
+            'posts_per_page' => 4,
+            'ignore_sticky_posts' => 1,
+          );
+          $the_query = new WP_Query( $args );
+
+          // The Loop
+          if ( $the_query->have_posts() ) {
+          	while ( $the_query->have_posts() ) {
+          		$the_query->the_post();
+              get_template_part( 'template-parts/content', 'index' );
+          	}
+          	/* Restore original Post Data */
+          	wp_reset_postdata();
+          } else {
+          	// no posts found
+          }
+        ?>
         </div>
       </section>
 

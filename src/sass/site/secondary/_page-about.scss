@@ -1,0 +1,24 @@
+ul{
+  margin:0;
+  padding:0;
+  list-style: none;
+
+  li{ text-align:center; }
+
+  h1{ margin:0 0 0.5em; }
+
+  h5{ margin:0; }
+
+  p{ text-align: left; }
+}
+
+.about-green{
+  color: $green_reg;
+}
+
+.about-radius{
+  display: block;
+  padding: 0.25em 0.5em;
+  background-color: #ddfbb0;
+  border: 1px solid #333;
+}

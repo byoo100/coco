@@ -54,6 +54,8 @@
 
             button{
               font-size: 0.875em;
+              height: $nav-preSize;
+              line-height: $nav-preSize;
               padding: 0 0.75em;
               border: none;
               border-radius: 0;
@@ -182,7 +184,7 @@
 
         .site-branding{
           display: flex;
-          flex: 0 1 35%;
+          flex: 0 1 30%;
           align-items: center;
 
           .desktop-logo{
@@ -240,7 +242,7 @@
 
         .desktop-list{
           display: none;
-          flex: 0 1 65%;
+          flex: 0 1 70%;
           flex-wrap: nowrap;
           justify-content: flex-end;
           align-items: center;

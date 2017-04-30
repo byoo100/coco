@@ -283,7 +283,7 @@ add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
  * @return int (Maybe) modified excerpt length.
  * https://developer.wordpress.org/reference/functions/the_excerpt/
  */
-function wpdocs_custom_excerpt_length( $length ) {
-    return 20;
-}
-add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+// function wpdocs_custom_excerpt_length( $length ) {
+//     return 20;
+// }
+//add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );

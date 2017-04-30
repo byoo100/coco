@@ -10,10 +10,12 @@
 --------------------------------------------------------------*/
 @import "primary/posts-and-pages";
 @import "primary/page";
-@import "primary/page-home";
-@import "primary/index";
+@import "primary/index-grid";
 @import "primary/single";
 @import "primary/single-events";
+@import "secondary/single-index";
+@import "secondary/page-home";
+@import "secondary/page-about";
 @import "secondary/google-map";
 
 /*--------------------------------------------------------------

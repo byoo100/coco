@@ -1,0 +1,41 @@
+.bg-gray{
+  background-color: #eee;
+}
+
+.single-container{
+  .single-index{
+    article{
+      margin-bottom: 5em;
+      padding: 0 1em 2em;
+      background-color: #fff;
+      overflow-y:auto;
+
+      a{
+        text-decoration: none;
+      }//a
+
+      .featured-container{
+        .featured-image{
+          overflow: hidden;
+          img{ max-height: 440px; object-fit: cover; object-position: 50% 50%; }
+          a{
+            display: block;
+            &:hover{ opacity: .75; }
+          }
+        }
+      }
+
+      .entry-header{
+        .entry-title{
+          font-size: 2.2em;
+        }//.entry-title
+      }//.entry-header
+
+      .readmore{
+        display: block;
+        margin: 0 auto;
+      }
+
+    }//article
+  }//.single-index
+}//.single-container

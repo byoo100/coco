@@ -14,18 +14,9 @@
 
 get_header(); ?>
 
-	<?php
-		$page_id     = get_queried_object_id();
-
-		echo '<section class="image-featured">';
-		echo get_the_post_thumbnail($page_id, 'featured-lg');
-		echo '<h1 class="page-title">' . get_the_title($page_id) . '</h1>';
-	  echo '<div class="vignette"></div>';
-		echo '</section>';
-	?>
-
-	<div id="primary" class="content-area index-blog">
-		<main id="blog-area" class="site-main index-container" role="main">
+	<div id="primary" class="content-area bg-gray">
+		<main id="blog-area" class="site-main single-container" role="main">
+			<div class="single-article single-index bg-gray">
 
 		<?php
 		if ( have_posts() ) : ?>
@@ -51,6 +42,8 @@ get_header(); ?>
 
 		endif;
 		?>
+
+		<div>
 
 		</main><!-- #main -->
 
