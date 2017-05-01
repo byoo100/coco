@@ -22,8 +22,20 @@ input[type="submit"] {
 	a{
 		display: block;
 		margin: 0;
-		padding: 0.75em;
+		padding: 0.65em;
 		text-decoration: none;
+	}
+}
+
+.btn-green{
+	border: 2px solid $green_reg;
+	a{
+		color: $green_reg;
+
+		&:hover{
+			color: $color__link;
+			background-color: $green_reg;
+		}
 	}
 }
 
@@ -35,6 +47,18 @@ input[type="submit"] {
 		&:hover{
 			color: $color__link;
 			background-color: $yellow_light;
+		}
+	}
+}
+
+.btn-white{
+	border: 2px solid #fff;
+	a{
+		color: #fff;
+
+		&:hover{
+			color: $color__link;
+			background-color: #fff;
 		}
 	}
 }

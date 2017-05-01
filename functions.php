@@ -144,12 +144,12 @@ function coco_scripts() {
 	/**
 	 * JQUERY LOAD AFTER CONTENT
 	 */
-	wp_deregister_script( 'jquery' );
-	wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
-	wp_enqueue_script( 'jquery' );
-	wp_deregister_script( 'jquery-migrate.min' );
-	wp_register_script( 'jquery-migrate.min', includes_url( '/js/jquery/jquery-migrate.min.js' ), false, NULL, true );
-	wp_enqueue_script( 'jquery-migrate.min' );
+	// wp_deregister_script( 'jquery' );
+	// wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
+	// wp_enqueue_script( 'jquery' );
+	// wp_deregister_script( 'jquery-migrate.min' );
+	// wp_register_script( 'jquery-migrate.min', includes_url( '/js/jquery/jquery-migrate.min.js' ), false, NULL, true );
+	// wp_enqueue_script( 'jquery-migrate.min' );
 
 	wp_enqueue_script( 'coco-bundle', get_template_directory_uri() . '/dist/js/bundle.min.js', array('jquery'), '20151215', true );
 

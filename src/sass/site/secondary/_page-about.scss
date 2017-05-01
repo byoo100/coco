@@ -1,9 +1,21 @@
-ul{
+ul.about-list{
+  display: flex;
+  flex-wrap: wrap;
   margin:0;
   padding:0;
+  text-align:center;
   list-style: none;
 
-  li{ text-align:center; }
+  .about-title{
+    flex: 0 0 100%;
+    @media screen and (max-width: $size-sm){ text-align: left; }
+  }
+
+  li{
+    flex: 1 1 100%;
+    margin:0;
+    @media screen and (min-width: $size-sm){ flex: 1 1 46%; margin:0 2%;}
+  }
 
   h1{ margin:0 0 0.5em; }
 
@@ -11,6 +23,7 @@ ul{
 
   p{ text-align: left; }
 }
+
 
 .about-green{
   color: $green_reg;

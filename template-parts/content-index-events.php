@@ -11,47 +11,59 @@
 
 <article id="post-<?php the_ID();?>">
 
+
   <?php
     if(get_field('event_image')){
 
-      $image_attributes = wp_get_attachment_image_src( $attachment_id = get_field('event_image'), 'square-sm' );
+      $image_id = get_field('event_image');
 
-      echo '<div class="event-image left">';
+      $image_set = '<img src="%1$s" srcset="%2$s"  sizes="%3$s"></img>';
+
+      $image_set = sprintf( $image_set,
+    		wp_get_attachment_image_url( $image_id, 'square-sm' ),
+    		wp_get_attachment_image_srcset( $image_id, 'square-sm' ),
+    		wp_get_attachment_image_sizes( $image_id, 'square-sm' )
+    	);
+
+      echo '<div class="event-image">';
       echo '<a href=' . get_permalink() . '>';
-      echo '<img src=' . $image_attributes[0] . ' width=' . $image_attributes[1] . ' height=' . $image_attributes[2] . '/>';
+      echo $image_set;
       echo '</a>';
+      coco_event_date();
       echo '</div>';
-      echo '<div class="event-info right">';
-    } else {
-      echo '<section class=event-header>';
-      echo '<div class=event-info>';
     }//if
-
-  echo '<h1 class=entry-title><a href=' . get_permalink() . '>' . get_the_title() . '</a></h1>';
-
   ?>
+  <span class="upcoming">Upcoming Event</span>
+  <?php if(get_field('event_image')) :
+    echo '<div class="event-info">';
+    else :
+    echo '<div class="event-info no-image">';
+  endif; ?>
+    <h1 class="entry-title">
+      <?php echo get_the_title(); ?>
+    </h1>
 
-  <?php if(get_field('event_start')) : ?>
-    <div class="event-date">
-      <span class="event-start"><?php the_field('event_start'); ?></span>
-    <?php if(get_field('event_end')) : ?>
-      <span class="event-end"><?php the_field('event_end'); ?></span>
-    <?php endif; ?>
-    </div>
-  <?php endif; ?>
+    <?php if(get_field('event_start') && !get_field('event_image')) :
+      echo '<div class="event-date">';
+      echo '<span class="event-start">' . get_field('event_start') . '</span>';
+      if(get_field('event_end')) :
+        echo '<span class="event-end">' . get_field('event_end') . '</span>';
+      endif;
+      echo '</div>'; //.event-date
+    endif; ?>
 
-  <?php
-  if(get_field('event_address')){
-    echo "<div class=event-address>";
+    <?php if(get_field('event_address')) :
+      echo '<div class="event-address">';
       the_field('event_address');
-    echo "</div>";
-  }
+      echo '</div>';
+    endif; ?>
 
-  echo '<button class="btn btn-yellow-light event-more">';
-  echo '<a href=' . get_the_permalink() . '>' . 'More Info' . '</a>';
-  echo '</button';
-  echo '</div>'; //event-info
-  ?>
+    <?php if(!get_field(event_image)) :
+      echo '<button class="btn btn-white event-more">';
+      echo '<a href=' . get_the_permalink() . '>' . 'More Info' . '</a>';
+      echo '</button';
+    endif; ?>
 
+  </div><!--.event-info-->
 
 </article><!-- #post-## -->

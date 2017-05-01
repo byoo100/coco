@@ -23,18 +23,18 @@ $nav-xl: 1400px;
 $nav-xxl: 1800px;
 
 $single-sm: 100%;
-$single-md: 600px;
-$single-lg: 800px;
-$single-xl: 1000px;
-$single-xxl: 1200px;
+$single-md: 700px;
+$single-lg: 900px;
+$single-xl: 1100px;
+$single-xxl: 1300px;
 
 $page-sm: 100%;
-$page-md: 700px;
+$page-md: 800px;
 $page-lg: 1000px;
 $page-xl: 1200px;
 $page-xxl: 1400px;
 
-$index-xs: 400px;
+$index-sm: 600px;
 $index-md: 700px;
 $index-lg: 1000px;
 $index-xl: 1300px;
@@ -66,8 +66,9 @@ $nav-preSize: 2.8125em;
   @media screen and (min-width: $size-xxl) { @include container($single-xxl); }
 }
 
+.events-container,
 .index-container{
-  @include container($index-xs);
+  @include container($index-sm);
   @media screen and (min-width: $size-sm) { @include container($index-md); }
   @media screen and (min-width: $size-lg) { @include container($index-lg); }
   @media screen and (min-width: $size-xl) { @include container($index-xl); }

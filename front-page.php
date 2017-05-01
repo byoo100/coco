@@ -62,15 +62,28 @@ get_header(); ?>
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
 
-      <section id="home-events">
-        <div class="page-container event-wrap">
-          <h3 class="event-title">UPCOMING EVENT</h3>
+      <section id="home-events" class="events-area">
+        <div class="events-container events-wrap">
           <?php
             $args = array(
-            	'post_type' => 'events',
+      				'post_type' => 'events',
               'posts_per_page' => 1,
               'ignore_sticky_posts' => 1,
-            );
+      				'orderby'	=> 'meta_value_num',
+      				'order'		=> 'ASC',
+      				'meta_query' => array(
+      					array(
+      				  	'key'		=> 'event_start',
+      				  	'compare'	=> '>=',
+      				    'value'		=> $today,
+      				  ),
+      			    array(
+      			      'key'		=> 'event_end',
+      			      'compare'	=> '>=',
+      			      'value'		=> $today,
+      			    )
+      		    ),
+      			);
             $the_query = new WP_Query( $args );
 
             // The Loop
@@ -145,8 +158,8 @@ get_header(); ?>
       ?>
 
 
-      <section id="home-index">
-        <div class="home-wrap index-wrap">
+      <section id="home-index" class="home-section">
+        <div class="home-wrap">
           <?php
              $blog_title = get_the_title( get_option('page_for_posts', true) );
              echo '<h1 class="home-title index-title">' . $blog_title . '</h1>';

@@ -1,0 +1,12 @@
+.site-footer{
+  @include clearfix();
+  padding: 2.5em 1em 2.5em;
+  text-align: center;
+  background-color: #1a1a1a;
+
+  .site-info{
+    display: inline-block;
+    font-size: 1.2em;
+    color: #999;
+  }
+}//.site-footer

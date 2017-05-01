@@ -98,81 +98,7 @@
     background: linear-gradient(to bottom, darken(#20a088,20%), #20a088);
     width: 100%;
     padding: 2em 0;
-    color: #f2f2f2;
-
-    .event-wrap{
-      .event-title{
-        margin: 0 0 1em;
-        font-weight: 400;
-        color: $yellow_light;
-        text-align: center;
-        text-shadow:3px 3px 5px #000;
-      }
-      article{
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-
-        .event-image{
-          margin-right: 1em;
-          img{display: block;}
-        }
-        .event-info{
-          padding: 1em;
-
-          .entry-title{
-            margin: 0 0 0.25em;
-            a{
-              color: #f2f2f2;
-              text-decoration: none;
-              &:hover{ color: $color__link-hover; }
-            }
-          }
-
-          .event-date{
-            .event-start{
-              &:before{
-                font-family: $font__awesome;
-                content:'\f073';
-                margin-right: 0.25em;
-              }
-            }//event-start
-            .event-end{
-              white-space:nowrap;
-              &:before{
-                font-family: $font__awesome;
-                content:' - ';
-              }
-            }//event-end
-          }//event-date
-
-          .event-address{
-            &:before{
-              font-family: $font__awesome;
-              content: '\f278';
-              margin-right: 0.25em;
-            }
-          }//event-address
-
-          .event-more{
-            display: block;
-            margin: 2em auto 1em;
-
-            a{
-              font-size: 1.25em;
-              font-weight: 700;
-              text-transform: uppercase;
-              text-shadow: 1px 1px 2px #000;
-
-              &:hover{
-                text-shadow: none;
-              }
-            }
-          }
-        }//event-info
-      }//article
-    }//.event-wrap
-
+    
     .events-title{
       margin-top: 0;
     }
@@ -281,14 +207,14 @@
 
 
   #home-index{
-    background-color:#123b72;
+    background-color: $darkblue_reg;
     padding-top: 2em;
     position: relative;
 
-    .index-wrap{
+    .home-wrap{
       @include clearfix();
 
-      .entry-title{
+      .index-title{
         color: #f0f0f0;
       }
     }

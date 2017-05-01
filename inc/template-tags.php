@@ -195,3 +195,32 @@ function coco_paging_nav() {
 	endif;
 }
 endif;
+
+if ( ! function_exists( 'coco_event_date' ) ) :
+/**
+ * Prints HTML with meta information for the current post-date/time and author.
+ */
+function coco_event_date() {
+	$start_date = get_field('event_start', false, false);
+	$start_date = new DateTime($start_date);
+
+	$end_date = get_field('event_end', false, false);
+	$end_date = new DateTime($end_date);
+
+	if(get_field('event_start')){
+		echo '<div class="event-date">';
+		echo '<span class="event-start">';
+		echo '<span class="start-month">' . $start_date->format('M') . '</span>';
+		echo '<span class="start-day">' . $start_date->format('j') . '</span>';
+		echo '</span>';
+		if(get_field('event_end')){
+			echo '<span class="event-end">' . $end_date->format('M j') . '</span>';
+		}
+		echo '</div>';
+	} else {
+
+		return;
+	}
+
+}
+endif;

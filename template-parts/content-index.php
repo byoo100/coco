@@ -55,7 +55,7 @@
     </a>
 	</div><!-- .entry-content -->
 
-  <button class="btn readmore">
+  <button class="btn btn-green readmore">
     <a href="<?php echo get_permalink(); ?>">Read More</a>
   </button>
 

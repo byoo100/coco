@@ -13,6 +13,7 @@
   article{
     @include span(12 of 12 split);
     margin-bottom: 1.25em;
+    padding-bottom: 1em;
     background-color: #ffffff;
     box-shadow: 3px 3px 6px #333333;
     border-radius: 5px;
@@ -35,6 +36,7 @@
     }
     .entry-header{
       .entry-title{
+        font-size: 1.6em;
         margin: 0.5em 0;
         padding: 0 1em;
         line-height: 1.33;
@@ -42,7 +44,7 @@
         text-align: center;
         text-transform: uppercase;
         a{ text-decoration: none; }
-      }
+      }//.entry-title
 
       .entry-meta{
         display: block;
@@ -51,14 +53,19 @@
         padding: 0 0.75em;
         color: #808080;
         text-align: center;
-      }
-    }
+      }//.entry-meta
+    }//.entry-header
 
     .entry-content{
       font-size: 0.9em;
       margin: 0 0 1.25em;
       padding: 0 1em;
       a{ text-decoration: none; p{ margin: 0; }}
-    }
+    }//.entry-content
+
+    .readmore{
+      display: block;
+      margin: 0 auto;
+    }//.readmore
   } //article
 } //container-index
