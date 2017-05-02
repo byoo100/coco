@@ -2,7 +2,7 @@
 	width: 100%;
 	height: 300px;
 	border: #ccc solid 1px;
-	margin: 20px 0;
+	@media screen and (min-width: $size-md){ height: 400px; }
 }
 
 /* fixes potential theme css conflict */

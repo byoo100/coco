@@ -2,7 +2,7 @@
   background: linear-gradient(to bottom right, lighten($green_reg, 15%), $green_reg);
 
   &.events-fill{
-    min-height: calc(100vh - #{$nav-mainSize} - #{$nav-preSize});
+    @include fillHeight();
   }
 }//.events-area
 
@@ -10,6 +10,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-top:2em;
 
   article{
     flex: 0 0 300px;
@@ -82,8 +83,10 @@
 
     .event-info{
       color: #fff;
+
       &.no-image{
         padding:2em 0.25em;
+        min-height: 300px;
         background-color: lighten($darkblue_reg, 5%);
       }
 

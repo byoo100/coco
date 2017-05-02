@@ -67,7 +67,7 @@ get_header(); ?>
           <?php
             $args = array(
       				'post_type' => 'events',
-              'posts_per_page' => 1,
+              'posts_per_page' => 2,
               'ignore_sticky_posts' => 1,
       				'orderby'	=> 'meta_value_num',
       				'order'		=> 'ASC',

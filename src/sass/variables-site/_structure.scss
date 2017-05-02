@@ -22,11 +22,10 @@ $nav-lg: 1200px;
 $nav-xl: 1400px;
 $nav-xxl: 1800px;
 
-$single-sm: 100%;
+$single-sm: 700px;
 $single-md: 700px;
 $single-lg: 900px;
 $single-xl: 1100px;
-$single-xxl: 1300px;
 
 $page-sm: 100%;
 $page-md: 800px;
@@ -60,10 +59,7 @@ $nav-preSize: 2.8125em;
 
 .single-container{
   @include container($single-sm);
-  @media screen and (min-width: $size-md) { @include container($single-md); }
   @media screen and (min-width: $size-lg) { @include container($single-lg); }
-  @media screen and (min-width: $size-xl) { @include container($single-xl); }
-  @media screen and (min-width: $size-xxl) { @include container($single-xxl); }
 }
 
 .events-container,

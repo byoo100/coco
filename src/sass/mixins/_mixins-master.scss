@@ -67,3 +67,7 @@
 	object-position: 50% 50%;
 	z-index: -999999;
 }
+
+@mixin fillHeight(){
+	min-height: calc(100vh - #{$nav-mainSize} - #{$nav-preSize});
+}

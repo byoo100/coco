@@ -34,9 +34,9 @@ function coco_posted_on() {
 
 	$categories_list = get_the_category_list( esc_html__( ', ', 'coco' ) );
 
-	echo '<span class="meta byline">' . $byline . '</span>';
-	echo '<span class="meta posted-on">' . $posted_on . '</span>';
-	echo '<span class="meta cat-links">' . $categories_list . '</span>';
+	echo '<span class="meta byline nowrap">' . $byline . '</span>';
+	echo '<span class="meta posted-on nowrap">' . $posted_on . '</span>';
+	echo '<span class="meta cat-links nowrap">' . $categories_list . '</span>';
 
 }
 endif;

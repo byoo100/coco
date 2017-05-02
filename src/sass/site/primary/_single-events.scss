@@ -1,14 +1,31 @@
 .event-container{
   @include container(1000px);
-  margin-top: 2em;
+  @include clearfix();
+  padding: 2em 1em 0;
 
   .event-header{
+    @include clearfix();
     display: flex;
-    flex-wrap: nowrap;
-    text-align: center;
+    flex-wrap: wrap;
+    font-size: 1.4em;
 
-    .left{ @include span(6 of 12 0); }
-    .right{ @include span (6 of 12 0); text-align: left;}
+    .left{
+      display: block;
+      @include span(12 of 12 0);
+      @media screen and (min-width: $size-sm){ @include span(6 of 12 no-gutters); }
+    }//.left
+
+    .event-info{
+      display: block;
+      @include span(12 of 12 0);
+      padding: 0.5em;
+      text-align: center;
+
+      &.right{
+        text-align: left;
+        @media screen and (min-width: $size-sm){ @include span(6 of 12 before); }
+      }//.right
+    }//.event-info
 
     .event-image{
       display: block;
@@ -17,23 +34,20 @@
       img{
         display: block;
         width: 100%;
-      }
+      }//img
     }//event-image
 
-    .event-info{
-      padding: 1.2em;
-    }
-
     .entry-title{
-      font-size: 2.4em;
-      margin: 0.25em 0;
+      font-size: 1.8em;
+      margin: 0 0 0.25em;
       text-transform: uppercase;
       color:#19816e;
       text-shadow: 3px 3px 4px #dddddd;
+
+      @media screen and (min-width: $size-sm){ font-size: 2em; }
     }//event-title
 
     .event-date{
-      font-size: 1.4em;
       margin-bottom: 0.2em;
 
       .event-start{
@@ -41,32 +55,34 @@
           font-family: $font__awesome;
           content:'\f073';
           margin-right: 0.25em;
-        }
+        }//before
       }//event-start
       .event-end{
         white-space:nowrap;
         &:before{
           font-family: $font__awesome;
           content:' - ';
-        }
+        }//before
       }//event-end
     }//event-date
 
     .event-address{
-      font-size: 1.4em;
       margin-bottom: 0.2em;
       &:before{
         font-family: $font__awesome;
         content: '\f278';
         margin-right: 0.25em;
-      }
-    }//event-address
+      }//before
+    }//.event-address
+  }//event-header
 
-    .event-description{
+
+
+  .event-description{
+    @include container(1000px);
+    .description-wrap{
       font-size: 1.1em;
       margin: 0 0 1em;
-      text-align: left;
-    }//event-description
-
-  }//event-header
-}//event-container
+    }//.description-wrap
+  }//.event-description
+}//.event-container

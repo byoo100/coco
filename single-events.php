@@ -25,16 +25,25 @@ get_header(); ?>
 			<?php
 				if(get_field('event_image')){
 
+					$image_id = get_field('event_image');
+
+					$image_set = '<img src="%1$s" srcset="%2$s"  sizes="%3$s"></img>';
+
+					$image_set = sprintf( $image_set,
+						wp_get_attachment_image_url( $image_id, 'square-md' ),
+						wp_get_attachment_image_srcset( $image_id, 'square-md' ),
+						wp_get_attachment_image_sizes( $image_id, 'square-md' )
+					);
+
 	        $image_attributes = wp_get_attachment_image_src( $attachment_id = get_field('event_image'), 'square-md' );
 
 
 					echo '<div class="event-image left">';
-	        echo '<img src=' . $image_attributes[0] . ' width=' . $image_attributes[1] . ' height=' . $image_attributes[2] . '/>';
+					echo $image_set;
 					echo '</div>';
 					echo '<div class="event-info right">';
 				} else {
-					echo '<section class=event-header>';
-					echo '<div class=event-info right>';
+					echo '<div class="event-info">';
 				}//if
 
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -57,17 +66,21 @@ get_header(); ?>
         echo "</div>";
       }
 
-			if(get_field('event_description')){
-        echo "<div class=event-description>";
-          the_field('event_description');
-        echo "</div>";
-      }
-
 			echo '</div>'; //event-info
-
 			?>
 
 				</section> <!--event-header-->
+
+				<?php
+				if(get_field('event_description')){
+	        echo "<div class=event-description>";
+					echo "<div class=description-wrap>";
+	          the_field('event_description');
+					echo "</div>";
+	        echo "</div>";
+	      }
+				?>
+
 			</div> <!--event-container-->
 
 			<?php

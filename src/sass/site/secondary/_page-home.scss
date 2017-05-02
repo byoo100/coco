@@ -81,7 +81,7 @@
     .home-wrap{
       max-width: 31.25em;
       margin: 0 auto;
-      padding: 0.5em 0;
+      padding: 0.5em 1em;
       text-align: center;
     }
 
@@ -148,7 +148,7 @@
         display: block;
         position: relative;
         padding: 1.2em 1em;
-        margin-bottom: 1em;
+        margin-bottom: 2em;
         text-align: center;
         background-color: #f6f6f6;
         @media screen and (min-width: $size-sm) { @include span(6 of 12); margin-left:0; &:nth-child(2n+0){ margin-right: 0; }}
