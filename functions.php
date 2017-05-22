@@ -132,24 +132,26 @@ add_action( 'widgets_init', 'coco_widgets_init' );
 function coco_scripts() {
 	wp_enqueue_style( 'coco-style', get_stylesheet_uri() );
 
-		if( get_bloginfo('language') == 'en-US'){
-			wp_enqueue_style( 'coco-fonts-EN', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,700' );
-		} elseif ( get_bloginfo('language') == 'ko-KR' ){
-			wp_enqueue_style( 'coco-fonts-KR-nanum', 'https://fonts.googleapis.com/earlyaccess/nanumgothic.css' );
-			wp_enqueue_style( 'coco-fonts-KR-jeju', 'https://fonts.googleapis.com/earlyaccess/jejugothic.css' );
-		}
+		// if( get_bloginfo('language') == 'en-US'){
+		// 	wp_enqueue_style( 'coco-fonts-EN', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,700' );
+		// } elseif ( get_bloginfo('language') == 'ko-KR' ){
+		// 	wp_enqueue_style( 'coco-fonts-KR-nanum', 'https://fonts.googleapis.com/earlyaccess/nanumgothic.css' );
+		// 	wp_enqueue_style( 'coco-fonts-KR-jeju', 'https://fonts.googleapis.com/earlyaccess/jejugothic.css' );
+		// }
+		wp_enqueue_style( 'coco-fonts-EN', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,700' );
+
 
 	wp_enqueue_style( 'coco-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 
 	/**
 	 * JQUERY LOAD AFTER CONTENT
 	 */
-	// wp_deregister_script( 'jquery' );
-	// wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
-	// wp_enqueue_script( 'jquery' );
-	// wp_deregister_script( 'jquery-migrate.min' );
-	// wp_register_script( 'jquery-migrate.min', includes_url( '/js/jquery/jquery-migrate.min.js' ), false, NULL, true );
-	// wp_enqueue_script( 'jquery-migrate.min' );
+	wp_deregister_script( 'jquery' );
+	wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
+	wp_enqueue_script( 'jquery' );
+	wp_deregister_script( 'jquery-migrate.min' );
+	wp_register_script( 'jquery-migrate.min', includes_url( '/js/jquery/jquery-migrate.min.js' ), false, NULL, true );
+	wp_enqueue_script( 'jquery-migrate.min' );
 
 	wp_enqueue_script( 'coco-bundle', get_template_directory_uri() . '/dist/js/bundle.min.js', array('jquery'), '20151215', true );
 
@@ -251,6 +253,7 @@ add_filter('intermediate_image_sizes_advanced', 'remove_default_image_sizes');
 
 
 
+
 /**
  * Google Map api key registry
  *
@@ -277,7 +280,7 @@ add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
 
 /**
- * Filter the except length to 20 words.
+ * Filter the excerpt length to 20 words.
  *
  * @param int $length Excerpt length.
  * @return int (Maybe) modified excerpt length.
@@ -287,3 +290,37 @@ add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 //     return 20;
 // }
 //add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+$font_eng = '//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,700';
+add_editor_style( array( 'inc/editor-style.css', str_replace( ',', '%2C', $font_eng ) ) );
+
+
+
+function my_login_logo_url() {
+	 return home_url();
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+	 return 'Official COCO Website';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
+/**
+ * Change the logo for login
+ *
+ * https://codex.wordpress.org/Customizing_the_Login_Form
+ */
+ function my_login_logo() { ?>
+     <style type="text/css">
+         #login h1 a, .login h1 a {
+          background: url(<?php echo get_template_directory_uri(); ?>/dist/img/COCO-logo.svg);
+					height:100px;
+					width:100px;
+					background-size: 100px 100px;
+					background-repeat: no-repeat;
+         	padding-bottom: 0;
+         }
+     </style>
+ <?php }
+ add_action( 'login_enqueue_scripts', 'my_login_logo' );

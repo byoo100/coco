@@ -196,6 +196,8 @@ function coco_paging_nav() {
 }
 endif;
 
+
+
 if ( ! function_exists( 'coco_event_date' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.

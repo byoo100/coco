@@ -26,7 +26,7 @@
     <section id="desktop-menu">
       <div class="nav-container nav-flex">
         <div class="site-branding">
-          <object type="image/svg+xml" class="desktop-logo" data="<?php echo get_template_directory_uri(); ?>/src/img/COCO-logo.svg" style="max-width:100px; max-height:100px;"></object>
+          <object type="image/svg+xml" class="desktop-logo" data="<?php echo get_template_directory_uri(); ?>/dist/img/COCO-logo.svg" style="max-width:100px; max-height:100px;"></object>
           <div class="site-info">
             <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
             <p class="site-description">
@@ -62,7 +62,7 @@
 
     <section id="mobile-menu">
       <div class="site-branding">
-        <object type="image/svg+xml" class="mobile-logo" data="<?php echo get_template_directory_uri(); ?>/src/img/COCO-logo.svg" style="max-width:100px; max-height:100px;"></object>
+        <object type="image/svg+xml" class="mobile-logo" data="<?php echo get_template_directory_uri(); ?>/dist/img/COCO-logo.svg" style="max-width:100px; max-height:100px;"></object>
       </div><!-- .site-branding -->
 
       <?php wp_nav_menu( array(

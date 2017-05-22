@@ -19,8 +19,8 @@
     border-radius: 5px;
     overflow: hidden;
 
-    @media screen and (min-width: $size-sm) and (max-width: $size-lg){ @include span(6 of 12); margin-left: 0; &:nth-child(2n+0){ margin-right: 0; } }
-    @media screen and (min-width: $size-lg) and (max-width: $size-xl){ @include span(4 of 12); margin-left: 0; &:nth-child(3n+0){ margin-right: 0; } }
+    @media screen and (min-width: $size-sm) and (max-width: $size-xl){ @include span(6 of 12); margin-left: 0; &:nth-child(2n+0){ margin-right: 0; } }
+    //@media screen and (min-width: $size-lg) and (max-width: $size-xl){ @include span(4 of 12); margin-left: 0; &:nth-child(3n+0){ margin-right: 0; } }
     @media screen and (min-width: $size-xl){ @include span (3 of 12); margin-left: 0; &:nth-child(4n+0){ margin-right: 0; } }
 
     .featured-container{
@@ -36,7 +36,7 @@
     }
     .entry-header{
       .entry-title{
-        font-size: 1.6em;
+        font-size: 1.4em;
         margin: 0.5em 0;
         padding: 0 1em;
         line-height: 1.33;

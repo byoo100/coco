@@ -12,7 +12,7 @@
     height: 100%;
     top:0;
     left:0;
-    background: linear-gradient(to bottom, #fff, #fff, $green_reg);
+    background: linear-gradient(to bottom right, #f9f9f9, #f0f0f0, #67B26F);
     overflow-y: auto;
     transition: left 500ms ease-in-out;
     z-index: 150;
@@ -135,7 +135,41 @@
     }//#mobile-menu
 
     #mobile-sub{
+      //SOCIAL
+      //=====================
+        .social-list{
+          flex: 0 1 auto;
+          display: flex;
+          align-items: center;
+          position: relative;
+          font-size: 1.25em;
+          margin:0;
+          padding: 0;
+          list-style: none;
 
+          li{
+            display: inline-block;
+            vertical-align: middle;
+
+            a{
+              display: inline-block;
+              vertical-align:middle;
+              padding: 0 0.5em;
+              margin-right: 0.1em;
+              cursor: pointer;
+
+              &:before{
+                display:inline-block;
+                font-family: $font__awesome;
+              }//before
+
+              &:hover{
+                color:#fff;
+                background-color: $green_reg;
+              }//hover
+            }//a
+          }//li
+        }//social-list
 
     }//#mobile-sub
   }//#mobile-main

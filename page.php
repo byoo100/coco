@@ -21,10 +21,6 @@ get_header(); ?>
 			the_title( '<h1 class="page-title">', '</h1>' );
 			echo '<div class="vignette"></div>';
 			echo '</section>';
-		} else {
-			echo '<header class="entry-header page-container">';
-			the_title( '<h1 class="entry-title">', '</h1>' );
-			echo '</header>';
 		}
 	?>
 

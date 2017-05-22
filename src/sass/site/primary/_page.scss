@@ -1,10 +1,10 @@
 .image-featured{
-  height: 300px;
+  height: 250px;
   position: relative;
   overflow: hidden;
   max-width: 100%;
-  @media screen and (min-width: $size-sm){ height: 500px }
-  @media screen and (min-width: $size-xl){ height: 700px }
+  @media screen and (min-width: $size-sm){ height: 400px }
+  @media screen and (min-width: $size-xl){ height: 600px }
 
   img{
     display: block;

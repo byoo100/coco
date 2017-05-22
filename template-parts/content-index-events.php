@@ -33,12 +33,40 @@
       echo '</div>';
     }//if
   ?>
-  <span class="upcoming">Upcoming Event</span>
+
+  <?php
+    //IF EVENT IS UPCOMING OR PAST
+    if(get_field('event_start')){
+      $today = new DateTime('now');
+      $start_date = get_field('event_start', false, false);
+    	$start_date = new DateTime($start_date);
+
+      if(get_field('event_end')){
+        $end_date = get_field('event_end', false, false);
+      	$end_date = new DateTime($end_date);
+
+        if($today <= $end_date){
+          echo "<span class=upcoming>Upcoming Event</span>";
+        } else {
+          echo "<span class=past>Past Event</span>";
+        }//end_date
+      } else {
+
+        if($today <= $start_date){
+          echo "<span class=upcoming>Upcoming Event</span>";
+        } else {
+          echo "<span class=past>Past Event</span>";
+        }//start_date
+      } //event_end
+    } //event_start
+  ?>
+
   <?php if(get_field('event_image')) :
     echo '<div class="event-info">';
     else :
     echo '<div class="event-info no-image">';
   endif; ?>
+
     <h1 class="entry-title">
       <?php echo get_the_title(); ?>
     </h1>

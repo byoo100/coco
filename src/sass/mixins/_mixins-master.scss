@@ -69,5 +69,6 @@
 }
 
 @mixin fillHeight(){
-	min-height: calc(100vh - #{$nav-mainSize} - #{$nav-preSize});
+	min-height: calc(100vh - #{$mobile-mainSize});
+	@media screen and (min-width: $size-sm){ min-height: calc(100vh - #{$nav-mainSize} - #{$nav-preSize}); }
 }

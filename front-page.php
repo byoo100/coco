@@ -29,8 +29,8 @@ get_header(); ?>
     	$image_id = get_sub_field('welcome_img');
       $text_content = get_sub_field('welcome_text');
 
-      get_sub_field(welcome_x) ? $pos_x = get_sub_field(welcome_x) : $pos_x = '50%';
-      get_sub_field(welcome_y) ? $pos_y = get_sub_field(welcome_y) : $pos_y = '50%';
+      get_sub_field('welcome_x') ? $pos_x = get_sub_field('welcome_x') : $pos_x = '50%';
+      get_sub_field('welcome_y') ? $pos_y = get_sub_field('welcome_y') : $pos_y = '50%';
 
       $image_set = '<img src="%1$s" srcset="%2$s"  sizes="%3$s" style="object-position:%4$s %5$s"></img>';
 
@@ -58,48 +58,51 @@ get_header(); ?>
   ?>
 </section>
 
-
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
 
-      <section id="home-events" class="events-area">
-        <div class="events-container events-wrap">
-          <?php
-            $args = array(
-      				'post_type' => 'events',
-              'posts_per_page' => 2,
-              'ignore_sticky_posts' => 1,
-      				'orderby'	=> 'meta_value_num',
-      				'order'		=> 'ASC',
-      				'meta_query' => array(
-      					array(
-      				  	'key'		=> 'event_start',
-      				  	'compare'	=> '>=',
-      				    'value'		=> $today,
-      				  ),
-      			    array(
-      			      'key'		=> 'event_end',
-      			      'compare'	=> '>=',
-      			      'value'		=> $today,
-      			    )
-      		    ),
-      			);
-            $the_query = new WP_Query( $args );
+      <?php
+        //EVENTS SECTION
+        $today = date('Ymd');
 
-            // The Loop
-            if ( $the_query->have_posts() ) {
-            	while ( $the_query->have_posts() ) {
-            		$the_query->the_post();
-                get_template_part( 'template-parts/content', 'index-events' );
-            	}
-            	/* Restore original Post Data */
-            	wp_reset_postdata();
-            } else {
-            	// no posts found
-            }
-          ?>
-        </div>
-      </section>
+        $args = array(
+  				'post_type' => 'events',
+          'posts_per_page' => 2,
+          'ignore_sticky_posts' => 1,
+  				'orderby'	=> 'meta_value_num',
+  				'order'		=> 'ASC',
+  				'meta_query' => array(
+  					array(
+  				  	'key'		=> 'event_start',
+  				  	'compare'	=> '>=',
+  				    'value'		=> $today,
+  				  ),
+  			    array(
+  			      'key'		=> 'event_end',
+  			      'compare'	=> '>=',
+  			      'value'		=> $today,
+  			    )
+  		    ),
+  			);
+        $the_query = new WP_Query( $args );
+
+        // The Loop
+        if ( $the_query->have_posts() ) {
+          echo "<section id=home-events class=events-area>";
+          echo "<div class='events-container events-wrap'>";
+
+        	while ( $the_query->have_posts() ) {
+        		$the_query->the_post();
+            get_template_part( 'template-parts/content', 'index-events' );
+
+          }
+        	/* Restore original Post Data */
+        	wp_reset_postdata();
+
+          echo "</div>"; //.events-wrap
+          echo "</section>"; //#home-events
+        }
+      ?>
 
       <?php
         if( get_field("home_about")){
@@ -128,10 +131,10 @@ get_header(); ?>
       ?>
 
       <?php
-      echo '<section id="home-resources">';
-      echo '<ul>';
-      // check if the flexible content field has rows of data
+      //RESOURCES SECTION
       if( have_rows('home_resouces') ):
+        echo '<section id="home-resources">';
+        echo '<ul>';
 
         $i = 0;
 
@@ -151,50 +154,46 @@ get_header(); ?>
 
         endif;
         endwhile;
-      endif;
 
-      echo '</ul>';
-      echo '</section>';
+        echo '</ul>';
+        echo '</section>'; //#home-resources
+      endif;
       ?>
 
 
-      <section id="home-index" class="home-section">
-        <div class="home-wrap">
-          <?php
-             $blog_title = get_the_title( get_option('page_for_posts', true) );
-             echo '<h1 class="home-title index-title">' . $blog_title . '</h1>';
-          ?>
-        </div>
 
-        <div class="index-container">
-        <?php
-          $args = array(
-          	'post_type' => 'post',
-            'posts_per_page' => 4,
-            'ignore_sticky_posts' => 1,
-          );
-          $the_query = new WP_Query( $args );
+      <?php
+        $args = array(
+        	'post_type' => 'post',
+          'posts_per_page' => 4,
+          'ignore_sticky_posts' => 1,
+        );
+        $the_query = new WP_Query( $args );
 
-          // The Loop
-          if ( $the_query->have_posts() ) {
-          	while ( $the_query->have_posts() ) {
-          		$the_query->the_post();
-              get_template_part( 'template-parts/content', 'index' );
-          	}
-          	/* Restore original Post Data */
-          	wp_reset_postdata();
-          } else {
-          	// no posts found
-          }
-        ?>
-        </div>
-      </section>
+        // The Loop
+        if ( $the_query->have_posts() ) {
 
+          echo "<section id=home-index class=home-section>";
+          echo "<div class=home-wrap>";
+          $blog_title = get_the_title( get_option('page_for_posts', true) );
+          echo '<h1 class="home-title index-title">' . $blog_title . '</h1>';
+          echo "</div>"; //#home-index
+
+          echo "<div class=index-container>";
+
+        	while ( $the_query->have_posts() ) {
+        		$the_query->the_post();
+            get_template_part( 'template-parts/content', 'index' );
+        	}
+        	/* Restore original Post Data */
+        	wp_reset_postdata();
+
+          echo "</div>"; //.index-container
+          echo "</section>"; //#home-index
+        }
+      ?>
     </main>
-
 </div>
-
-
 
 <?php
 get_footer();

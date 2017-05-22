@@ -19,11 +19,15 @@ get_header(); ?>
       <div class="events-container events-wrap">
 
 			<?php
+			$today = date('Ymd');
+
+			//UPCOMING EVENTS
 			$args = array(
 				'post_type' => 'events',
 				'orderby'	=> 'meta_value_num',
 				'order'		=> 'ASC',
 				'meta_query' => array(
+					'relation' => 'OR',
 					array(
 				  	'key'		=> 'event_start',
 				  	'compare'	=> '>=',
@@ -44,18 +48,60 @@ get_header(); ?>
 
 					get_template_part( 'template-parts/content', 'index-events' );
 
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
 				endwhile; // End of the loop.
 
+					/* Restore original Post Data */
+					wp_reset_postdata();
+
 				else :
-					echo '<h1>No Upcoming Events</h1>';
+					echo '<h1 class="noevents">No Upcoming Events</h1>';
 			endif;
 			?>
 
-    </div>
+    </div><!-- events-container -->
+
+
+
+		<div class="events-container events-wrap">
+
+			<?php
+			$today = date('Ymd');
+
+			//PAST EVENTS
+			$args = array(
+				'post_type' => 'events',
+				'orderby'	=> 'meta_value_num',
+				'order'		=> 'ASC',
+				'meta_query' => array(
+					'relation' => 'AND',
+					array(
+						'key'		=> 'event_start',
+						'compare'	=> '<',
+						'value'		=> $today,
+					),
+					array(
+						'key'		=> 'event_end',
+						'compare'	=> '<',
+						'value'		=> $today,
+					)
+				),
+			);
+
+			$query = new WP_Query($args);
+
+			if( $query->have_posts() ) :
+				while ( $query->have_posts() ) : $query->the_post();
+
+					get_template_part( 'template-parts/content', 'index-events' );
+
+				endwhile; // End of the loop.
+
+					coco_paging_nav();
+
+			endif;
+			?>
+
+		</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

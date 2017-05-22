@@ -12,6 +12,13 @@
   justify-content: center;
   padding-top:2em;
 
+  .noevents{
+    padding: 0 2em;
+    color: #f2f2f2;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
   article{
     flex: 0 0 300px;
     display: block;
@@ -19,6 +26,7 @@
     margin: 2em 1em;
     text-align: center;
 
+    .past,
     .upcoming{
       @include centerX();
       display: inline-block;
@@ -29,9 +37,16 @@
       color: #fdfdfd;
       border: 1px solid #999;
       border-radius: 5px;
-      background-color: $yellow_light;
       text-shadow: 1px 1px 2px #000;
     }//.upcoming
+
+    .upcoming{
+      background-color: $yellow_light;
+    }
+
+    .past{
+      background-color: $red_light;
+    }
 
     .event-image{
       display:inline-block;
@@ -42,7 +57,10 @@
 
       a{
         display: block;
+        opacity: 1;
+        transition: none;
         &:hover{ opacity: .85; }
+
       }
 
       .event-date{

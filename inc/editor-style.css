@@ -1,0 +1,68 @@
+/*
+Theme Name: COCO
+Description: Used to style the content editor in posts and pages.
+*/
+
+
+/* =Body
+----------------------------------------------- */
+body {
+	color: #121212;
+	font-family: 'Roboto', 'Nanum Gothic', sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+/* =Base elements
+----------------------------------------------- */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+	color: #121212;
+}
+
+a:visited {
+	color: #121212;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	clear: right;
+  font-family: 'Montserrat', 'Jeju Gothic', sans-serif;
+  font-weight: 700;
+  color: #121212;
+  margin-bottom: .4em;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 28.8px;
+}
+
+h3 {
+    font-size: 25.6px;
+}
+
+h4 {
+    font-size: 22.4px;
+}
+
+h5 {
+    font-size: 19.2px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+p,
+ul,
+ol {
+    font-size: 16px;
+    line-height: 1.5em;
+}
