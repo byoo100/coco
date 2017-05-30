@@ -129,52 +129,58 @@ add_action( 'widgets_init', 'coco_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function coco_scripts() {
-	wp_enqueue_style( 'coco-style', get_stylesheet_uri() );
+ if(!is_admin()){
+	 function coco_scripts() {
+	 	wp_enqueue_style( 'coco-style', get_stylesheet_uri() );
 
-		// if( get_bloginfo('language') == 'en-US'){
-		// 	wp_enqueue_style( 'coco-fonts-EN', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,700' );
-		// } elseif ( get_bloginfo('language') == 'ko-KR' ){
-		// 	wp_enqueue_style( 'coco-fonts-KR-nanum', 'https://fonts.googleapis.com/earlyaccess/nanumgothic.css' );
-		// 	wp_enqueue_style( 'coco-fonts-KR-jeju', 'https://fonts.googleapis.com/earlyaccess/jejugothic.css' );
-		// }
-		wp_enqueue_style( 'coco-fonts-EN', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,700' );
+	 	wp_enqueue_style( 'coco-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,700' );
+
+	 	wp_enqueue_style( 'coco-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+
+	 	/**
+	 	 * JQUERY LOAD AFTER CONTENT
+	 	 */
+	 	wp_deregister_script( 'jquery' );
+	 	wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
+	 	wp_enqueue_script( 'jquery' );
+	 	wp_deregister_script( 'jquery-migrate.min' );
+	 	wp_register_script( 'jquery-migrate.min', includes_url( '/js/jquery/jquery-migrate.min.js' ), false, NULL, true );
+	 	wp_enqueue_script( 'jquery-migrate.min' );
+
+		wp_register_script( 'coco-bundle', get_template_directory_uri() . '/dist/js/bundle.min.js', array('jquery'), false, true );
+	 	wp_enqueue_script( 'coco-bundle' );
+
+	 	// JQuery Validation
+
+		// 	wp_register_script( 'custom_js', get_template_directory_uri() . '/js/jquery-validation.js', array( 'jquery' ), '1.0', TRUE );
+		// 	wp_enqueue_script( 'custom_js' );
+
+	 	// validation
+	 	wp_register_script( 'validation', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array( 'jquery' ) );
+	 	wp_enqueue_script( 'validation' );
+
+	 	/**
+	 	 * AJAX PAGINATION
+	 	 */
+	 	global $wp_query;
+	 	wp_localize_script( 'coco-bundle', 'ajaxpagination', array(
+	 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
+	 		'query_vars' => json_encode( $wp_query->query )
+	 	));
+
+	 	// GOOGLE MAP
+	 	wp_enqueue_script( 'coco-google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAFEVbGugLqPUEPC3Y9pr2uHOe5YXVud3w', array( ), false, true );
+	 	wp_enqueue_script( 'coco-google-map-js', get_template_directory_uri() . '/src/js/google-map.js', array( 'jquery' ), false, true );
 
 
-	wp_enqueue_style( 'coco-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 
-	/**
-	 * JQUERY LOAD AFTER CONTENT
-	 */
-	wp_deregister_script( 'jquery' );
-	wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
-	wp_enqueue_script( 'jquery' );
-	wp_deregister_script( 'jquery-migrate.min' );
-	wp_register_script( 'jquery-migrate.min', includes_url( '/js/jquery/jquery-migrate.min.js' ), false, NULL, true );
-	wp_enqueue_script( 'jquery-migrate.min' );
+	 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	 		wp_enqueue_script( 'comment-reply' );
+	 	}
+	 }
+	 add_action( 'wp_enqueue_scripts', 'coco_scripts' );
+ }//is_admin
 
-	wp_enqueue_script( 'coco-bundle', get_template_directory_uri() . '/dist/js/bundle.min.js', array('jquery'), '20151215', true );
-
-	/**
-	 * AJAX PAGINATION
-	 */
-	global $wp_query;
-	wp_localize_script( 'coco-bundle', 'ajaxpagination', array(
-		'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		'query_vars' => json_encode( $wp_query->query )
-	));
-
-	// GOOGLE MAP
-	wp_enqueue_script( 'coco-google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAFEVbGugLqPUEPC3Y9pr2uHOe5YXVud3w', array( ), false, true );
-	wp_enqueue_script( 'coco-google-map-js', get_template_directory_uri() . '/src/js/google-map.js', array( 'jquery' ), false, true );
-
-
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'coco_scripts' );
 
 /**
  * Implement the Custom Header feature.
