@@ -1,24 +1,14 @@
-html{
-	&:lang(ko-KR),
-	&:lang(en-US){
-		body, button, input, select, textarea{
-			@include font-size(0.875);
-
-			@media screen and (min-width: $size-md){ @include font-size(1); }
-			@media screen and (min-width: $size-xxl){ @include font-size(1.125); }
-		}
-	}//en-US
-}//html
-
-
 body,
 button,
 input,
 select,
 textarea {
+	@include font-size(0.875);
 	color: $color__text-main;
 	font-family: $font__main;
 	line-height: $font__line-height-body;
+	@media screen and (min-width: $size-md){ @include font-size(1); }
+	@media screen and (min-width: $size-xxl){ @include font-size(1.125); }
 }
 
 @import "headings";

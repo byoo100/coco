@@ -17,11 +17,17 @@ textarea {
 	color: $color__text-input;
 	border: 1px solid $color__border-input;
 	border-radius: 3px;
-	padding: 3px;
+	padding: 3px 3px 3px 0.5em;
 
 	&:focus {
-		color: $color__text-input-focus;
+		outline: none;
 	}
+
+	&::-webkit-input-placeholder {
+	  color: #e0e0e0;
+	}
+
+
 }
 
 select {
