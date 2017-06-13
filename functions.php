@@ -306,7 +306,7 @@ function coco_register_required_plugins() {
 	 	wp_enqueue_script( 'coco-bundle' );
 
 
-		if( is_page('Volunteer') || is_singular('volunteers') ){
+		if( is_page('volunteer') || is_page('volunteer-kr') || is_singular('volunteers') ){
 			// JQuery Validation
 			wp_register_script( 'coco-validation', get_template_directory_uri() . '/dist/js/volunteer/jquery-validation.js', array( 'jquery' ), '1.0', TRUE );
 			wp_enqueue_script( 'coco-validation' );

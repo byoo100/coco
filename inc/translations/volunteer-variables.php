@@ -56,6 +56,35 @@
     $label_tos_date = '일자';
     $label_tos_guardian_signature = '보호자 서명';
     $label_tos_guardian_date = '일자';
+    //====================
+
+    $label_emergency_title = 'Emergency Card';
+
+    $label_emergency_name = '이름 (성, 명)';
+    $label_emergency_dob = '생년월일';
+    $label_emergency_home_phone = '집 전화';
+    $label_emergency_cell_phone = '셀 전화';
+    $label_emergency_home_address = '주소';
+    $label_emergency_mother_name = '엄마의 이름';
+    $label_emergency_mother_phone = '어머니의 전화 번호';
+    $label_emergency_father_name = '아버지의 이름';
+    $label_emergency_father_phone = '아버지 전화 번호';
+    $label_emergency_third_contact = 'Third Contact';
+    $label_emergency_third_phone = 'Third Contact&#39;s Phone';
+    $label_emergency_relationship_third = 'Relationship with Third Contact';
+    $label_emergency_physician_1 = 'Family Physician (1st Choice)';
+    $label_emergency_physician_1_phone = 'Family Physician (1st Choice) Phone';
+    $label_emergency_hospital = '선호 병원';
+    $label_emergency_physician_2 = 'Family Physician (2nd Choice)';
+    $label_emergency_physician_2_phone = 'Family Physician (2nd Choice) Phone';
+    $label_emergency_allergies = '알레르기';
+    $label_emergency_allergic_to = 'Allergic To';
+    $label_emergency_usual_treatment = 'Usual Treatment';
+    $label_emergency_medications = 'Medications';
+    $label_emergency_medication_name = 'Medication Name';
+    $label_emergency_medication_for = 'Used for';
+    $label_emergency_other_health = 'Other Health Issues';
+    $label_emergency_other_health_description = 'Describe Other Health Issues';
 
   } else {
 
@@ -145,8 +174,6 @@
     $label_emergency_medication_for = 'Used for';
     $label_emergency_other_health = 'Other Health Issues';
     $label_emergency_other_health_description = 'Describe Other Health Issues';
-
-
 
   }
 

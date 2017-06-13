@@ -1,9 +1,5 @@
 .events-area{
   background: linear-gradient(to bottom right, lighten($green_reg, 15%), $green_reg);
-
-  &.events-fill{
-    @include fillHeight();
-  }
 }//.events-area
 
 .events-wrap{

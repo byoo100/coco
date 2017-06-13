@@ -15,7 +15,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main events-area events-fill" role="main">
+		<main id="main" class="site-main events-area" role="main">
       <div class="events-container events-wrap">
 
 			<?php

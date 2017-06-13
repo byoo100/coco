@@ -21,7 +21,7 @@
  include_once('inc/volunteer-meta.php');
 
  //Email settings
- $to = 'brianyoo313@gmail.com';
+ $to = 'coco4future@yahoo.com';
  $subject = "Volunteer Request from: ".$_POST['coco_contact_name'];
  $headers = 'From: COCO <donotreply@nycoco.org>';
  $message = $_POST['coco_contact_name'].' has submitted the COCO Volunteer Request Form. Please log into the admin panel to view the request.';
@@ -29,6 +29,12 @@
 
  //Saves the meta content
  if ( isset( $_POST['submitted'] ) && isset( $_POST['post_nonce_field'] ) && wp_verify_nonce( $_POST['post_nonce_field'], 'post_nonce' ) ) {
+
+   if (get_locale() == 'ko_KR'){
+     $redirect = get_permalink( get_page_by_path( 'volunteer-complete-kr' ) );
+   } else {
+     $redirect = get_permalink( get_page_by_path( 'volunteer-complete' ) );
+   }
 
      $post_information = array(
          'post_title' => wp_strip_all_tags( $_POST['coco_contact_name'] ),
@@ -47,9 +53,9 @@
       save_meta_box($post_id, $previous_fields);
       save_meta_box($post_id, $emergency_contact_fields);
       save_meta_box($post_id, $term_of_service_fields);
-      //wp_mail($to, $subject, strip_tags($message), $headers);
+      wp_mail($to, $subject, strip_tags($message), $headers);
 
-			 wp_redirect( home_url() );
+			 wp_redirect( $redirect );
 			 exit;
 		 }
 
@@ -213,9 +219,9 @@ get_header(); ?>
                           foreach ($field['options'] as $option) {
                               echo '<span class="vol_check_group nowrap">
                                     <input type="checkbox" name="'.$field['id'].'[]"
-                                      id="'.$option['value'].'" value="'.$option['value'].'"',
+                                      id="'.$option['id'].'" value="'.$option['value'].'"',
                                       $meta && in_array($option['value'], $meta) ? ' checked="checked"' : '',' />
-                                    <label for="'.$option['value'].'">'.$option['label'].'</label></span>';
+                                    <label for="'.$option['id'].'">'.$option['label'].'</label></span>';
                           }
                           echo '</td>';
                       break;
@@ -228,9 +234,9 @@ get_header(); ?>
                           foreach ( $field['options'] as $option ) {
                               echo '<span class="nowrap vol_radio">
                                     <input type="radio" name="'.$field['id'].'"
-                                      id="'.$option['value'].'" value="'.$option['value'].'"',
+                                      id="'.$option['id'].'" value="'.$option['value'].'"',
                                       $meta == $option['value'] ? ' checked="checked"' : '',' />
-                                    <label for="'.$option['value'].'">'.$option['label'].'</label></span>';
+                                    <label for="'.$option['id'].'">'.$option['label'].'</label></span>';
                           }
                           echo '</td>';
                       break;

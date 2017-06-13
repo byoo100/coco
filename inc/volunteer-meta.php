@@ -98,22 +98,27 @@ $availability_fields = array(
         'options'   => array (
             'Mon' => array (
                 'label' => $label_monday,
+                'id'    => 'asp_mon',
                 'value' => 'Monday'
             ),
             'Tues' => array (
                 'label' => $label_tuesday,
+                'id'    => 'asp_tues',
                 'value' => 'Tuesday'
             ),
             'Wed' => array (
                 'label' => $label_wednesday,
+                'id'    => 'asp_wed',
                 'value' => 'Wednesday'
             ),
             'Thur' => array (
                 'label' => $label_thursday,
+                'id'    => 'asp_thur',
                 'value' => 'Thursday'
             ),
             'Fri' => array (
                 'label' => $label_friday,
+                'id'    => 'asp_fri',
                 'value' => 'Friday'
             )
         )//options
@@ -128,14 +133,17 @@ $availability_fields = array(
         'options'   => array (
             'Morning' => array (
                 'label' => $label_morning,
+                'id'    => 'srp_morning',
                 'value' => 'Morning'
             ),
             'Afternoon' => array (
                 'label' => $label_afternoon,
+                'id'    => 'srp_afternoon',
                 'value' => 'Afternoon'
             ),
             'Both' => array (
                 'label' => $label_both,
+                'id'    => 'srp_both',
                 'value' => 'Both'
             )
         )//options
@@ -150,22 +158,27 @@ $availability_fields = array(
         'options'   => array (
             'Mon' => array (
                 'label' => $label_monday,
+                'id'    => 'sp_mon',
                 'value' => 'Monday'
             ),
             'Tues' => array (
                 'label' => $label_tuesday,
+                'id'    => 'sp_tues',
                 'value' => 'Tuesday'
             ),
             'Wed' => array (
                 'label' => $label_wednesday,
+                'id'    => 'sp_wed',
                 'value' => 'Wednesday'
             ),
             'Thur' => array (
                 'label' => $label_thursday,
+                'id'    => 'sp_thur',
                 'value' => 'Thursday'
             ),
             'Fri' => array (
                 'label' => $label_friday,
+                'id'    => 'sp_fri',
                 'value' => 'Friday'
             )
         )//options
@@ -189,18 +202,22 @@ $reason_fields = array(
         'options'   => array (
             'HS' => array (
                 'label' => $label_highschool,
+                'id'    => 'reason_hs',
                 'value' => 'HS'
             ),
             'College' => array (
                 'label' => $label_college,
+                'id'    => 'reason_college',
                 'value' => 'College'
             ),
             'General' => array (
                 'label' => $label_general,
+                'id'    => 'reason_general',
                 'value' => 'General'
             ),
             'Other' => array (
                 'label' => $label_other,
+                'id'    => 'reason_other',
                 'value' => 'Other'
             )
         )
@@ -292,7 +309,7 @@ $emergency_contact_fields = array(
     array(
         'label'   => $label_emergency_dob,
         'id'      => $prefix.'emergency_DoB',
-        'type'    => 'text',
+        'type'    => 'date',
         'colspan' => 1,
         'break'   => true
     ),
@@ -410,10 +427,12 @@ $emergency_contact_fields = array(
         'options' => array (
             'yes' => array (
                 'label' => 'Yes',
+                'id'    => 'allergies_yes',
                 'value' => 'yes'
             ),
             'no' => array (
                 'label' => 'No',
+                'id'    => 'allergies_no',
                 'value' => 'no'
             )
         )
@@ -441,10 +460,12 @@ $emergency_contact_fields = array(
         'options' => array (
             'yes' => array (
                 'label' => 'Yes',
+                'id'    => 'medications_yes',
                 'value' => 'yes'
             ),
             'no' => array (
                 'label' => 'No',
+                'id'    => 'medications_no',
                 'value' => 'no'
             )
         )
@@ -472,10 +493,12 @@ $emergency_contact_fields = array(
         'options' => array (
             'yes' => array (
                 'label' => 'Yes',
+                'id'    => 'other_health_yes',
                 'value' => 'yes'
             ),
             'no' => array (
                 'label' => 'No',
+                'id'    => 'other_health_no',
                 'value' => 'no'
             )
         )
