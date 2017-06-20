@@ -305,17 +305,23 @@ function coco_register_required_plugins() {
 		wp_register_script( 'coco-bundle', get_template_directory_uri() . '/dist/js/bundle.min.js', array('jquery'), false, true );
 	 	wp_enqueue_script( 'coco-bundle' );
 
+		if( is_page( array( 'contact') ) ){
+				// reCAPTCHA Validation
+				wp_register_script( 'google-reCAPTCHA', 'https://www.google.com/recaptcha/api.js', array(), '', FALSE );
+				wp_enqueue_script( 'google-reCAPTCHA' );
 
-		if( is_page('volunteer') || is_page('volunteer-kr') || is_singular('volunteers') ){
-			// JQuery Validation
-			wp_register_script( 'coco-validation', get_template_directory_uri() . '/dist/js/volunteer/jquery-validation.js', array( 'jquery' ), '1.0', TRUE );
-			wp_enqueue_script( 'coco-validation' );
+				wp_register_script( 'coco-contact', get_template_directory_uri() . '/dist/js/contact-form.js', array(), '', TRUE );
+				wp_enqueue_script( 'coco-contact' );
+		}
 
-		 	// validation
-		 	wp_register_script( 'jquery-validation', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array( 'jquery' ) );
-		 	wp_enqueue_script( 'jquery-validation' );
 
-			wp_register_script( 'coco-volunteer', get_template_directory_uri() . '/dist/js/volunteer/volunteer-form.js', array(), '', TRUE );
+		if( is_page( array( 'volunteer', 'volunteer-kr' ) ) || is_singular('volunteers') ){
+
+			// reCAPTCHA Validation
+			wp_register_script( 'google-reCAPTCHA', 'https://www.google.com/recaptcha/api.js', array(), '', FALSE );
+			wp_enqueue_script( 'google-reCAPTCHA' );
+
+			wp_register_script( 'coco-volunteer', get_template_directory_uri() . '/dist/js/volunteer-form.js', array(), '', TRUE );
 			wp_enqueue_script( 'coco-volunteer' );
 		}
 

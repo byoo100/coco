@@ -53,7 +53,7 @@
       save_meta_box($post_id, $previous_fields);
       save_meta_box($post_id, $emergency_contact_fields);
       save_meta_box($post_id, $term_of_service_fields);
-      wp_mail($to, $subject, strip_tags($message), $headers);
+      //wp_mail($to, $subject, strip_tags($message), $headers);
 
 			 wp_redirect( $redirect );
 			 exit;
@@ -69,9 +69,9 @@ get_header(); ?>
     <h1 class="volunteer-title"><?php _e('Volunteer Application', 'coco')?></h1>
 
     <ul id="top_nav">
-      <li><a href="">Application</a></li>
-      <li><a href="">Emergency Card</a></li>
-      <li><a href="">Term of Service</a></li>
+      <li><a position="0" class="active">Application</a></li>
+      <li><a position="1">Emergency Card</a></li>
+      <li><a position="2">Term of Service</a></li>
     </ul>
   </div>
 
@@ -98,6 +98,12 @@ get_header(); ?>
           echo '</div>'; //#app_tos
         ?>
 
+        <div id='recaptcha'
+            class="g-recaptcha vol-recaptcha"
+            data-sitekey="6LfA1CUUAAAAAH2mvnNE4b78LG7v4mDLruciogXt"
+            data-callback="onSubmit">
+        </div>
+
         <div id="bot_nav">
           <div id="bot_prev">
             <button class="bot_btn" type="previous"><?php _e('Previous', 'coco')?></button>
@@ -106,7 +112,8 @@ get_header(); ?>
           <div id="bot_submit">
             <input type="hidden" name="submitted" id="submitted" value="true" />
     				<?php wp_nonce_field( 'post_nonce', 'post_nonce_field' ); ?>
-    				<button class="bot_btn" type="submit"><?php _e('Submit', 'coco') ?></button>
+            <button class="bot_btn" type="submit"><?php _e('Submit', 'coco') ?></button>
+
           </div>
 
           <div id="bot_next">

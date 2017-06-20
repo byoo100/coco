@@ -29,8 +29,11 @@
 				padding: 0.75em;
 				color: #ddd;
 				text-decoration: none;
+
+				&.active,
 				&:hover{
 					color: #fff;
+					cursor: pointer;
 					background-color: lighten($green_reg, 10%);
 				}
 			}

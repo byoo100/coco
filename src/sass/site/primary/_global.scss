@@ -13,6 +13,14 @@ body.noscroll{
   white-space: nowrap ;
 }
 
+#recaptcha{
+    margin-bottom: 1em;
+
+		&.vol-recaptcha{
+			justify-content: center;
+		}
+}
+
 
 .featured-video {
 	position: relative;

@@ -28,9 +28,9 @@ get_header(); ?>
     <h1 class="volunteer-title"><?php _e('Volunteer Application', 'coco')?></h1>
 
     <ul id="top_nav">
-      <li><a href="">Application</a></li>
-      <li><a href="">Emergency Card</a></li>
-      <li><a href="">Term of Service</a></li>
+      <li><a position="0" class="active">Application</a></li>
+      <li><a position="1">Emergency Card</a></li>
+      <li><a position="2">Term of Service</a></li>
     </ul>
   </div>
 
@@ -63,15 +63,13 @@ get_header(); ?>
           </div>
 
           <div id="bot_submit">
-    				<button class="bot_btn" style="display:none;" type="null"><?php _e('Submit', 'coco') ?></button>
+    				<button class="bot_btn" type="null"><?php _e('Submit', 'coco') ?></button>
           </div>
 
           <div id="bot_next">
             <button class="bot_btn" type="next"><?php _e('Next', 'coco')?></button>
           </div>
         </div>
-
-
 
       </form>
 
@@ -210,36 +208,7 @@ get_header(); ?>
 
           echo '</tr>';
           echo '</table>'; // end table
-      }
-
-      // Save the Data
-      function save_meta_box($post_id, $meta_fields) {
-
-          // loop through fields and save the data
-          foreach ($meta_fields as $field) {
-              if($field['type'] == 'text_group'){
-                foreach ($field['sub'] as $sub){
-                  $old = get_post_meta($post_id, $sub['id'], true);
-                  $new = $_POST[$sub['id']];
-
-                  if ($new && $new != $old) {
-                      update_post_meta($post_id, $sub['id'], $new);
-                  } elseif ('' == $new && $old) {
-                      delete_post_meta($post_id, $sub['id'], $old);
-                  }
-                } //$field[sub]
-              } elseif(!$field['header']){
-                $old = get_post_meta($post_id, $field['id'], true);
-                $new = $_POST[$field['id']];
-
-                if ($new && $new != $old) {
-                    update_post_meta($post_id, $field['id'], $new);
-                } elseif ('' == $new && $old) {
-                    delete_post_meta($post_id, $field['id'], $old);
-                }
-              } //$field[header]
-          } // end foreach
-      } //save_meta_box
+      } // show_meta_box
 
     ?>
 

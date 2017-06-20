@@ -1,0 +1,19 @@
+#contact_form{
+	margin: 1.25em auto;
+
+	table{
+		tr{
+			td{
+				display: block;
+				padding: 0.5em;
+
+				@media screen and (min-width: $size-sm){ display: table-cell; }
+
+				input[type="text"],
+				input[type="email"] {
+						@media screen and (min-width: $size-xs) and (max-width: $size-sm){ width: 50%; }
+				} //input
+			} //td
+		} //tr
+	} //table
+} //#contact_form
