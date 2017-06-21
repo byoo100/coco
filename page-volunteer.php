@@ -53,7 +53,7 @@
       save_meta_box($post_id, $previous_fields);
       save_meta_box($post_id, $emergency_contact_fields);
       save_meta_box($post_id, $term_of_service_fields);
-      //wp_mail($to, $subject, strip_tags($message), $headers);
+      wp_mail($to, $subject, strip_tags($message), $headers);
 
 			 wp_redirect( $redirect );
 			 exit;

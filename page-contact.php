@@ -27,8 +27,13 @@ function generate_response($type, $message){
 
 }
 
+if (get_locale() == 'ko_KR'){
+  $redirect = get_permalink( get_page_by_path( 'contact-complete-kr' ) );
+} else {
+  $redirect = get_permalink( get_page_by_path( 'contact-complete' ) );
+}
+
 //response messages
-$not_human       = "Human verification incorrect.";
 $missing_content = "Please supply all information.";
 $email_invalid   = "Email Address Invalid.";
 $message_unsent  = "Message was not sent. Try Again.";
@@ -39,10 +44,9 @@ $name = $_POST['message_name'];
 $email = $_POST['message_email'];
 $phone = $_POST['message_phone'];
 $message = nl2br($_POST['message_text']);
-$human = $_POST['message_human'];
 
 //php mailer variables
-$to = 'brian.yoo224@yahoo.com';
+$to = 'coco4future@yahoo.com';
 $subject = $name.' sent a message';
 $headers = array(
             'Content-Type: text/html; charset=UTF-8',
@@ -63,7 +67,7 @@ if( $name ) {
     if( $message ){
       $sent = wp_mail($to, $subject, $body, $headers);
       $sent ? generate_response("success", $message_sent) : '';
-      wp_redirect( home_url() );
+      wp_redirect( $redirect );
       exit;
     }
   }

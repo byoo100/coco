@@ -37,12 +37,9 @@
 
 
 
-
-
-
-function onSubmit(token) {
-  alert('thanks');
-}
+// function onSubmit(token) {
+//   alert('thanks');
+// }
 
   function validate(event) {
     event.preventDefault();

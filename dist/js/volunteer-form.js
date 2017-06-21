@@ -29,9 +29,6 @@
   var activeForm = list.forms[currentPos].obj;
 
 
-
-
-
   //init
   displayForm( list.forms[currentPos].obj, top_nav[currentPos], currentPos );
 
@@ -112,72 +109,19 @@
   btn_submit.addEventListener("click", function(event){
     event.preventDefault();
 
-    recaptchaResponse = document.getElementById('g-recaptcha-response');
 
-    if (recaptchaResponse.value){
-        container.submit();
+
+    if( validateForm() ) {
+      recaptchaResponse = document.getElementById('g-recaptcha-response');
+      if (recaptchaResponse.value){ container.submit(); }
+
+    } else {
+
+      checkForm[0].parentElement.scrollIntoView();
     }
 
   }); //btn_submit
-  //
-  //
-  //
-  // function mark_invalid(item){
-  //   item.dataset.touched = true;
-  // }//mark_invalid
-  //
-  //
-  // function validate_form(){
-  //   var check_form = active_form.querySelectorAll(':invalid');
-  //
-  //   if( check_form.length != 0 ){
-  //       check_form.forEach(function(item){
-  //           mark_invalid(item);
-  //       })
-  //       return false;
-  //   } else {
-  //     return true;
-  //   }
-  // }//validate_form
-  //
-  //
-  // function display_form(form, pos){
-  //     if( pos == 0 ){
-  //         display_next();
-  //         hide_prev();
-  //         hide_submit();
-  //     } else if( pos > 0 && pos < form_list.length - 1 ){
-  //         display_prev();
-  //         display_next();
-  //         hide_submit();
-  //     } else if( pos == form_list.length - 1 ){
-  //         display_submit();
-  //         hide_next();
-  //     }
-  //
-  //   for(var i=0; i < form_list.length; i++){
-  //
-  //     if(form_list[i] != form){
-  //       hide_form(form_list[i]);
-  //     } else{
-  //       form.classList.add("active");
-  //     }
-  //   }//for
-  // }//display_form
-  //
-  // function hide_form(form){ form.classList.remove("active");}//hide_form
-  //
-  // function display_prev(){ btn_prev.classList.add("show"); }
-  //
-  // function display_next(){ btn_next.classList.add("show"); }
-  //
-  // function display_submit(){ btn_submit.classList.add("show"); }
-  //
-  // function hide_prev(){ btn_prev.classList.remove("show"); }
-  //
-  // function hide_next(){ btn_next.classList.remove("show"); }
-  //
-  // function hide_submit(){ btn_submit.classList.remove("show"); }
+
 
   // This function triggers at position 0
   // So previous is hidden
