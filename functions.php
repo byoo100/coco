@@ -335,9 +335,12 @@ function coco_register_required_plugins() {
 	 		'query_vars' => json_encode( $wp_query->query )
 	 	));
 
+
 	 	// GOOGLE MAP
-	 	wp_enqueue_script( 'coco-google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAFEVbGugLqPUEPC3Y9pr2uHOe5YXVud3w', array( ), false, true );
-	 	wp_enqueue_script( 'coco-google-map-js', get_template_directory_uri() . '/src/js/google-map.js', array( 'jquery' ), false, true );
+		if( is_singular('events')){
+			wp_enqueue_script( 'coco-google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAFEVbGugLqPUEPC3Y9pr2uHOe5YXVud3w', array( ), false, true );
+		 	wp_enqueue_script( 'coco-google-map-js', get_template_directory_uri() . '/dist/js/google-map.js', array( 'jquery' ), false, true );
+		}
 
 
 

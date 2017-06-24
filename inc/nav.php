@@ -1,4 +1,5 @@
 
+
 <nav id="main-nav" class="main-navigation" role="navigation">
 
   <div id="desktop-main">
@@ -23,7 +24,11 @@
       </div><!--.nav-container-->
     </section><!--#desktop-pre-->
 
-    <section id="desktop-menu">
+<?php if( is_front_page() ) {
+  echo '<section id="desktop-menu" class="desktop-float">';
+} else {
+  echo '<section id="desktop-menu">';
+} ?>
       <div class="nav-container nav-flex">
         <div class="site-branding">
           <object type="image/svg+xml" class="desktop-logo" data="<?php echo get_template_directory_uri(); ?>/dist/img/COCO-logo.svg" style="max-width:100px; max-height:100px;"></object>

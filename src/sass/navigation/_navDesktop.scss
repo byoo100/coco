@@ -167,7 +167,18 @@
     //===============
     #desktop-menu{
       position: relative;
+      width: 100%;
       padding: 0 0.75em;
+
+      &.desktop-float{
+        position: absolute;
+        color: #fff;
+        a{
+          @include text-stroke();
+          color: #fff;
+          &:hover{ color: $green_light; }
+        }
+      }
 
       .nav-flex{
         display:flex;

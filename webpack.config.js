@@ -1,19 +1,16 @@
-var debug = process.env.NODE_ENV !== "production";
+var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var path = require("path");
-
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   context: __dirname,
-  devtool: debug ? "inline-sourcemap" : false,
-  entry: "./src/main.js",
+  entry: './src/main.js',
   output: {
-    path: __dirname + "/dist/js",
-    filename: "bundle.min.js"
+    path: path.resolve(__dirname, 'dist/js'),
+    filename: 'bundle.min.js'
   },
-  module:{
-    loaders:[
+  module: {
+    rules: [
       {
         test:/\.js$/,
         exclude:/(node_modules|bower_components)/,
@@ -24,33 +21,36 @@ module.exports = {
       },
       {
         test:/\.scss$/,
-        loader:ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!postcss-loader!sass-loader',
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            'css-loader',
+            'postcss-loader',
+            'resolve-url-loader',
+            'sass-loader?sourceMap'
+          ],
         })
       },
       {
-        test:/\.css$/,
-        loader:ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader',
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
         })
       },
       {
-        test: /\.(jpg|jpeg|png|gif)$/,
-        loader: 'url-loader'
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        use: 'url-loader'
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'url-loader'
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader'
+        ]
       }
     ]
   },
-  plugins: debug ? [
+  plugins: [
     new ExtractTextPlugin("../../style.css"),
-  ] : [
-    new ExtractTextPlugin("../../style.css"),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
   ]
-}
+};
