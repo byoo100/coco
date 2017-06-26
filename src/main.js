@@ -3,7 +3,7 @@ require('./sass/style.scss');
 
 require('./js/navigation.js');
 
-require('./js/home-slider.js');
+require('./js/page-home.js');
 
 require('./js/ajax-pagination.js');
 

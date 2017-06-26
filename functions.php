@@ -305,6 +305,12 @@ function coco_register_required_plugins() {
 		wp_register_script( 'coco-bundle', get_template_directory_uri() . '/dist/js/bundle.min.js', array('jquery'), false, true );
 	 	wp_enqueue_script( 'coco-bundle' );
 
+		if( is_front_page() ){
+			wp_register_script( 'coco-parallax', get_template_directory_uri() . '/dist/js/parallax.min.js', array('jquery'), false, true );
+		 	wp_enqueue_script( 'coco-parallax' );
+		}
+
+
 		if( is_page( array( 'contact') ) ){
 				// reCAPTCHA Validation
 				wp_register_script( 'google-reCAPTCHA', 'https://www.google.com/recaptcha/api.js', array(), '', FALSE );
@@ -429,6 +435,14 @@ function remove_default_image_sizes( $sizes) {
 add_filter('intermediate_image_sizes_advanced', 'remove_default_image_sizes');
 
 
+
+http://inspirationalpixels.com/snippets/add-post-type-to-main-loop
+function add_post_types_to_loop($query) {
+    if ($query->is_main_query() && $query->is_home() || $query->is_category() || $query->is_author()) {
+        $query->set('post_type', array('post', 'events'));
+    }
+}
+add_action('pre_get_posts', 'add_post_types_to_loop');
 
 
 /**

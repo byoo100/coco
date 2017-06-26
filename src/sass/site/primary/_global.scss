@@ -6,7 +6,6 @@ body.noscroll{
 
 #content{
 	@include clearfix();
-	@include fillHeight();
 }
 
 .nowrap {
