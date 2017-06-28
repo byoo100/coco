@@ -149,8 +149,9 @@ get_header(); ?>
         echo '<div class="carousel-bg">';
         for( $x = 0; $x < $i; $x++ ){
           echo '<div class="carousel-bg-image"
-          style="left: '.($x * 100).'%; background: url('.$resource_images[$x].')
-          no-repeat '.$resource_x[$x].' '.$resource_y[$x].';"></div>';
+          style="left: '.($x * 100).'%;
+          background-image: url('.$resource_images[$x].');
+          background-position:'.$resource_x[$x].' '.$resource_y[$x].';"></div>';
         }
         echo '</div>';
 

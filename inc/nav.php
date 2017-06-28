@@ -6,7 +6,7 @@
     <section id="desktop-pre">
       <div class="nav-container nav-flex">
         <?php
-          get_template_part('shortcodes/nav', 'contact');
+          get_template_part('inc/shortcodes/nav', 'contact');
 
           wp_nav_menu( array(
             'theme_location' => 'social',
