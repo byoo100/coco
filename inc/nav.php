@@ -34,10 +34,6 @@
           <object type="image/svg+xml" class="desktop-logo" data="<?php echo get_template_directory_uri(); ?>/dist/img/COCO-logo.svg" style="max-width:100px; max-height:100px;"></object>
           <div class="site-info">
             <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-            <p class="site-description">
-              <span class="nowrap">Center for Opportunities,</span>
-              <span class="nowrap">Choices &amp; Outcomes</span>
-            </p>
           </div><!--.site-info-->
         </div><!--.site-branding-->
 
